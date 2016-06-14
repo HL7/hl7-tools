@@ -1,0 +1,78 @@
+<p id="notice"><%= notice %></p>
+
+<% content_for :title, @tool.name %>
+
+<p>
+  <% if @tool.url -%>
+      <%= link_to 'Tool Homepage', @tool.url %>
+  <% else -%>
+      <span class="comment">No homepage specified<span>
+  <% end -%>
+</p>
+
+<p>
+  <%= @tool.description %>
+</p>
+
+<p>
+  <strong>Purpose:</strong>
+  <%= @tool.purpose %>
+</p>
+
+<p><strong>Technologies:</strong></p>
+<ul>
+  <% @tool.tool_technologies.each do |tech| -%>
+  <li><strong><%= tech.tech_code_value.print_name %></strong> <%= tech.tech_version %></li>
+  <% end -%>
+</ul>
+
+<p><strong>Dependencies:</strong></p>
+<ul>
+  <% @tool.tool_dependencies.each do |depend| -%>
+      <li><strong><%= depend.dependency.name %></strong> <%= depend.note %></li>
+  <% end -%>
+</ul>
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Version</th>
+    <th>Rollout Date</th>
+    <th>Last Update</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+    <td><%= @tool.version %></td>
+    <td><%= @tool.rollout_date %></td>
+    <td><%= @tool.last_update_date %></td>
+  </tr>
+  </tbody>
+</table>
+
+<p><strong>Assessment:</strong></p>
+<div class="meter-container">
+  <section class="vertical-meter">
+    <input id="risk" disabled="true" type='range' min='0' max='100' step='5' value='60' orient="vertical"/>
+  </section>
+  <section class="vertical-meter">
+    <input disabled="true" type='range' min='0' max='100' step='5' value='50'/>
+  </section>
+  <section class="vertical-meter">
+    <input disabled="true" type='range' min='0' max='100' step='5' value='25'/>
+  </section>
+  <section class="vertical-meter">
+    <input disabled="true" type='range' min='0' max='100' step='5' value='85'/>
+  </section>
+</div>
+
+<p><strong>People and Organizations associated with <%= @tool.name %>:</strong></p>
+<ul>
+
+</ul>
+
+<% if is_admin? %><%= link_to 'Edit', edit_tool_path(@tool) %> |<% end %>
+<%= link_to 'Back', tools_path %>
+

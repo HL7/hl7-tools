@@ -1,0 +1,146 @@
+// Place all the styles related to the Tools controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "compass/css3";
+
+$line-c: #fff;
+$line-w: .125em;
+
+$track-u: 1em;
+$track-w: 10*$track-u;
+$track-h: .375em;
+$track-s: 100%;
+$track-l: 45%;
+$track-bg: linear-gradient(90deg, hsl(0, $track-s, $track-l),
+        hsl(15, $track-s, $track-l), hsl(30, $track-s, $track-l),
+        hsl(45, $track-s, $track-l), hsl(60, $track-s, $track-l),
+        hsl(75, $track-s, $track-l), hsl(90, $track-s, $track-l));
+//$track-bg: linear-gradient(90deg, hsl(90, $track-s, $track-l),
+//        hsl(75, $track-s, $track-l), hsl(60, $track-s, $track-l),
+//        hsl(45, $track-s, $track-l), hsl(30, $track-s, $track-l),
+//        hsl(15, $track-s, $track-l), hsl(0, $track-s, $track-l));
+$track-lines: linear-gradient(90deg,
+  $line-c $line-w, transparent $line-w) -$line-w/2 50%;
+
+$thumb-bg: #a7a6a2;
+
+$ruler-fs: .875;
+$ruler-c: #2c2c2b;
+
+@mixin track() {
+  width: $track-w; height: $track-h;
+  background: $track-lines, $track-bg;
+  background-size: $track-u 100%, 100% 100%;
+}
+
+@mixin thumb() {
+  box-sizing: border-box;
+  border: solid 1px transparent;
+  width: $track-u * 2; height: $track-u * 2;
+  border-radius: 0;
+  transform: translateY(75%)
+  rotate(30deg) skewY(30deg) scaleX(cos(30deg));
+  background:
+          linear-gradient(135deg, $thumb-bg 25%, transparent 25%) content-box,
+          linear-gradient(135deg, $line-c 25%, transparent 25%) border-box;
+}
+
+.meter-container {
+  display: flex;
+  min-height: 1.2 * $track-w;
+}
+.vertical-meter {
+  overflow: hidden;
+  min-height: 1.5*$track-h;
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+  margin: 0;
+  //min-width: 1.2*$track-w;
+  min-width: 7*$track-h;
+  transform: rotate(-90deg);
+}
+
+.simple {
+  overflow: hidden;
+  min-width: 7*$track-h;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+input.vertical {
+  -webkit-appearance: slider-vertical;
+  writing-mode: bt-lr;
+}
+
+input[type='range'] {
+  &,
+  &::-webkit-slider-runnable-track,
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  position: absolute;
+  top: 50%; left: 50%;
+  border: solid 0 transparent;
+  border-width: 0 $track-u/2;
+  padding: 1em 0 0;
+  width: $track-w; height: $track-u;
+  border-radius: .25em;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  font-size: 1em;
+  cursor: pointer;
+
+  &::-webkit-slider-runnable-track {
+    position: relative;
+    @include track();
+  }
+  &::-moz-range-track {
+    @include track();
+  }
+  &::-ms-track {
+    border: none;
+    @include track();
+    color: transparent;
+  }
+
+  &::-ms-fill-lower { display: none; }
+
+  &::-webkit-slider-thumb {
+    margin-top: ($track-h - $track-u)/2;
+    @include thumb();
+  }
+  &::-moz-range-thumb {
+    @include thumb();
+  }
+  &::-ms-thumb {
+    @include thumb();
+  }
+
+  &::-webkit-slider-runnable-track, /deep/ #track {
+    &:before, &:after {
+      position: absolute;
+      bottom: 100%;
+      color: $ruler-c;
+      font: 700 #{$ruler-fs*1em} / 2 arial, sans-serif;
+    }
+    &:before {
+      left: $track-u/2 - .1875em;
+      word-spacing: $track-u - .5625em;
+      content: '1 2 3 4 5 6 7 8 9';
+    }
+    &:after {
+      right: $track-u/2 - .375em;
+      word-spacing: $track-u - 1.125em;
+      content: '10 11 12 13 14 15 16';
+    }
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 .25em orange;
+  }
+}

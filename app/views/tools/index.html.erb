@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<% content_for :title, 'Tool Listing' %>
+<%= form_tag(tools_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Tools for word or phrase", class: 'small-6' %>
+    <%= collection_check_boxes :search, :area, CodeValue.where(code_table: 'func-area'),
+                               :code, :print_name %>
+    <br/>
+    <%= collection_check_boxes :search, :standard, CodeValue.where(code_table: 'standard'),
+                               :code, :print_name %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tool Functional Areas</th>
+      <th>HL7 Product</th>
+      <th>Internal</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tools.each do |tool| %>
+      <tr>
+        <td><%= tool.name %></td>
+        <td><% if tool.functional_tags.count > 0 -%>
+          <ul class="tag-list">
+            <% tool.functional_tags.each do |tag| -%>
+            <li><%= tag %></li>
+            <% end -%>
+          </ul>
+          <% end -%></td>
+        <td><% if tool.product_tags.count > 0 -%>
+              <ul class="tag-list">
+                <% tool.product_tags.each do |tag| -%>
+                    <li><%= tag %></li>
+                <% end -%>
+              </ul>
+          <% end -%></td>
+        <td><div class="centered"><input class="display" disabled="true" type="checkbox" <% if tool.internal %>checked<% end %>></div></td>
+        <td>
+          <%= link_to(tool, class: 'detail-link') do %>
+          <span class="article-detail">Detail</span><span class="link-pointer"> &#x3e;</span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if is_admin? -%>
+<%= link_to 'New Tool', new_tool_path %>
+<% end -%>

@@ -1,0 +1,57 @@
+#search-form {
+  ::-webkit-input-placeholder {
+    font-style: italic;
+    color: red;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    font-style: italic;
+    color: red;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    font-style: italic;
+    color: red;
+  }
+
+  :-ms-input-placeholder {
+    font-style: italic;
+    color: red;
+  }
+
+  label {
+    margin-left: 3px;
+    margin-right: 6px;
+    font-size: .75em;
+    font-variant: small-caps;
+  }
+
+}
+
+.centered {
+  text-align: center;
+  align-content: center;
+}
+
+.link-pointer {
+  font-family: SimpleSymbol;
+  font-size: .8em;
+}
+
+.detail-link {
+  white-space: nowrap;
+}
+
+.article-detail {
+  font-variant: small-caps;
+  font-style: italic;
+  font-size: .8em;
+}
+
+input[type="checkbox"].display {
+  color: black;
+}
+
+.comment {
+  font-style: italic;
+}

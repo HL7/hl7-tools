@@ -1,0 +1,51 @@
+<div class="sticky">
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name"><h1><%= image_tag 'HL7logo.gif' %>            HL7 Tools/Services Catalogue</h1></li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <ul class="left">
+        <li class="main-title"><%= yield(:title).presence || 'Catalogue' %> </li>
+      </ul>
+    </section>
+  </nav>
+</div>
+
+<!--
+    <section class="top-bar-section">
+      <ul class="left">
+        <%= render partial: 'layouts/notifications' %>
+      </ul>
+      <ul class="right">
+        <li class="divider hide-for-small"></li>
+        <li><%= link_to 'Something', root_path %></li>
+        <li class="has-dropdown">
+          <a href="#">Reports</a>
+          <ul class="dropdown">
+            <li><label>Management Reports</label></li>
+            <li class="divider"></li>
+            <li><label>Operational Reports</label></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+
+
+    <nav class="menu">
+      <h1 class="name"><i class="fi-widget"></i> TOP GEAR</h1>
+      <ul class="inline-list">
+        <li><a href="#">Home</a></li>
+        <li class="active"><a href="#">Blog</a></li>
+        <li><a href="#">Pricing</a></li>
+      </ul>
+      <ul class="inline-list hide-for-small-only account-action">
+        <li><a href="#" data-reveal-id="myModal">Login</a></li>
+        <li class=""><a class="signup" href="#" data-reveal-id="myModal">Signup</a></li>
+      </ul>
+      <a class="account hide-for-medium-up" href="#" data-reveal-id="myModal"><i class="fi-unlock"></i></a>
+    </nav>
+
+-->

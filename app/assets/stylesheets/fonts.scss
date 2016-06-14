@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'SimpleSymbol';
+  src:url(font-path('SimpleSymbol.eot'));
+  src:url(font-path('SimpleSymbol.eot') + '?#iefix') format('embedded-opentype'),
+  url(font-path('SimpleSymbol.woff')) format('woff'),
+  url(font-path('SimpleSymbol.ttf')) format('truetype'),
+  url(font-path('SimpleSymbol.svg') + '#SimpleSymbol') format('svg');
+
+  font-weight: normal;
+  font-style: normal;
+}
