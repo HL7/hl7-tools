@@ -2,7 +2,8 @@
 
 <% content_for :title, 'Tool Listing' %>
 <%= form_tag(tools_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Tools for word or phrase", class: 'small-6' %>
+    <%= text_field_tag 'search[search_text]', @search.nil? ? nil : @search.search_text,
+                       placeholder: "Search for word or phrase", class: 'small-6' %>
     <%= collection_check_boxes :search, :area, CodeValue.where(code_table: 'func-area'),
                                :code, :print_name %>
     <br/>
