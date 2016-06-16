@@ -4,14 +4,15 @@ class ToolsController < ApplicationController
   # GET /tools
   # GET /tools.json
   def index
-    @search = ToolSearch.new
     if params[:search]
-      @search.search_text = params[:search][:search_text]
-      @search.area = params[:search][:area]
-      @search.standard = params[:search][:standard]
+      @search = ToolSearch.new(params[:search])
+      # @search.search_text = params[:search][:search_text]
+      # @search.area = params[:search][:area]
+      # @search.standard = params[:search][:standard]
       logger.debug "Got search params: #{params[:search]}"
-      @tools = Tool.all
+      @tools = Tool.query(@search)
     else
+      @search = ToolSearch.new
       @tools = Tool.all
     end
   end

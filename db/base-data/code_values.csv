@@ -34,6 +34,7 @@ id,code_table,short_code,long_value,description,print_name,parent_id
 33,technology,saas,Software as a Service,Software as a Service (such as Project Insight),SaaS,
 34,technology,uml,UML,Unified Modeling Language,UML,
 35,technology,c++,C++,C++,C++,
+36,technology,xmi,XMI,XMI,XMI
 50,func-area,member,Membership,Membership,Membership,
 51,func-area,educate,Education,Providing education on HL7 Standards,Education,
 52,func-area,impl,Implementation,Aids with implementing HL7 Standards,Implementation,
