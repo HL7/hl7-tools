@@ -9,7 +9,7 @@ class CreateTools < ActiveRecord::Migration
       t.string  :version
       t.boolean :internal, null: false, default: true
       t.string  :functional_area, limit: 15, array: true
-      t.string  :standard, limit: 15, array: true
+      t.string  :product, limit: 15, array: true
       t.date    :rollout_date
       t.date    :last_update_date
 

@@ -18,9 +18,9 @@ class Tool < ActiveRecord::Base
 
   def product_tags
     tags = []
-    if standard
-      standard.each do |fn_area|
-        code = CodeValue.find_by(code_table: 'standard', code: fn_area)
+    if product
+      product.each do |fn_area|
+        code = CodeValue.find_by(code_table: 'product', code: fn_area)
         tags << code.print_name if code
       end
     end
@@ -28,65 +28,47 @@ class Tool < ActiveRecord::Base
   end
 
   def self.query(search_params)
-    all
-  end
-
-  def self.return_join(query)
     the_arel = self.arel_table
-    smoosh_family = Arel::Nodes::NamedFunction.new('array_to_string',
-                                                   [the_arel[:family], Arel::Nodes.build_quoted(' ')])
-    smoosh_given = Arel::Nodes::NamedFunction.new('array_to_string',
-                                                  [the_arel[:given], Arel::Nodes.build_quoted(' ')])
-    return_conditions = nil
+    query = the_arel.project(the_arel[Arel.star])
 
-    if query.has_key?(:name)
-      if query[:name].is_a?(Array)
-        query_list = query[:name]
-      else
-        query_list = [query[:name]]
-      end
-
-      query_list.each do |the_query|
-        return_conditions = base_join(return_conditions).
-            and(Arel::Nodes::InfixOperation.new('@@', smoosh_family,
-                                                Arel::Nodes.build_quoted(the_query[:value])).
-                or(Arel::Nodes::InfixOperation.new('@@', smoosh_given,
-                                                   Arel::Nodes.build_quoted(the_query[:value]))))
-      end
-    else
-      if query.has_key?(:given)
-        if query[:given].is_a?(Array)
-          query_list = query[:given]
-        else
-          query_list = [query[:given]]
-        end
-
-        query_list.each do |the_query|
-          return_conditions = base_join(return_conditions).
-              and(Arel:: Nodes::InfixOperation.new('@@', smoosh_given,
-                                                   Arel::Nodes.build_quoted(the_query[:value])))
-        end
-      end
-
-      if query.has_key?(:family)
-        if query[:family].is_a?(Array)
-          query_list = query[:family]
-        else
-          query_list = [query[:family]]
-        end
-
-        query_list.each do |the_query|
-          return_conditions = base_join(return_conditions).
-              and(Arel:: Nodes::InfixOperation.new('@@', smoosh_family,
-                                                   Arel::Nodes.build_quoted(the_query[:value])))
-        end
+    if search_params.present?
+      filters = build_where(search_params)
+      if filters
+        Rails.logger.debug filters.to_sql
+        query = query.where(filters)
       end
     end
 
-    return_conditions
+    self.find_by_sql(query)
   end
 
-  def and_where(existing, new_filter)
+  def self.build_where(search_params)
+    the_arel = self.arel_table
+    where_filter = nil
+
+    unless search_params.search_text.empty?
+      text_list = search_params.search_text.split
+      tsvector = Arel::Nodes::SqlLiteral.new("to_tsvector('english'," +
+                                                 " name || ' ' || description || ' ' || purpose)")
+      tsquery  = Arel::Nodes::SqlLiteral.new("to_tsquery('#{text_list.join(' | ')}')")
+      where_filter = and_where(where_filter,
+                               Arel::Nodes::InfixOperation.new('@@', tsvector, tsquery))
+    end
+
+    if search_params.product.count > 0
+      where_filter = and_where(where_filter,
+                               the_arel[:product].overlap(search_params.product))
+    end
+
+    if search_params.area.count > 0
+      where_filter = and_where(where_filter,
+                               the_arel[:functional_area].overlap(search_params.area))
+    end
+
+    where_filter
+  end
+
+  def self.and_where(existing, new_filter)
     if existing
       existing.and(new_filter)
     else

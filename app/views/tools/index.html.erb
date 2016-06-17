@@ -7,7 +7,7 @@
     <%= collection_check_boxes :search, :area, CodeValue.where(code_table: 'func-area'),
                                :code, :print_name %>
     <br/>
-    <%= collection_check_boxes :search, :standard, CodeValue.where(code_table: 'standard'),
+    <%= collection_check_boxes :search, :product, CodeValue.where(code_table: 'product'),
                                :code, :print_name %>
     <%= submit_tag "Search", :name => nil %>
 <% end %>
