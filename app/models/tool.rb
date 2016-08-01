@@ -4,6 +4,7 @@ class Tool < ActiveRecord::Base
   has_many :tool_technologies
   has_many :tool_persons
   has_many :tool_notes
+  has_many :tool_users
 
   def functional_tags
     tags = []

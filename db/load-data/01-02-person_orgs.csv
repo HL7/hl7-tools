@@ -1,9 +1,9 @@
-id,name,contact_phone,contact_email,organization_name,active,notes,created_at,updated_at
-1,Woody Beeler,,woody@beelers.com,,t,Woody is reducing his activities,2016-06-01,2016-06-01
-2,Lloyd McKenzie,,lmckenzie@gevity.com,,t,Lloyd's main focus is FHIR,2016-06-01,2016-06-01
-3,Pete Rontney,,,,f,,2016-06-01,2016-06-01
-4,Andy Stechishin,,andy.stechishin@gmail.com,,t,,2016-06-01,2016-06-01
-5,Michael van der Zel,,,,t,,2016-06-01,2016-06-01
-6,Jean Duteau,,jean@duteaudesign.com,,t,,2016-06-01,2016-06-01
-7,Lynn Laakso,,lynn@hl7.org,,t,,2016-06-01,2016-06-01
-8,Don Lloyd,,,,f,,2016-06-01,2016-06-01
+id,name,contact_phone,contact_email,is_organization,active,notes,created_at,updated_at
+1,Woody Beeler,,woody@beelers.com,f,t,Woody is reducing his activities,2016-06-01,2016-06-01
+2,Lloyd McKenzie,,lmckenzie@gevity.com,f,t,Lloyd's main focus is FHIR,2016-06-01,2016-06-01
+3,Pete Rontney,,,f,f,,2016-06-01,2016-06-01
+4,Andy Stechishin,,andy.stechishin@gmail.com,f,t,,2016-06-01,2016-06-01
+5,Michael van der Zel,,,f,t,,2016-06-01,2016-06-01
+6,Jean Duteau,,jean@duteaudesign.com,f,t,,2016-06-01,2016-06-01
+7,Lynn Laakso,,lynn@hl7.org,f,t,,2016-06-01,2016-06-01
+8,Don Lloyd,,,f,f,,2016-06-01,2016-06-01

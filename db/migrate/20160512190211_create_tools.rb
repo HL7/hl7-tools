@@ -46,5 +46,11 @@ class CreateTools < ActiveRecord::Migration
       t.references :dependency, null: false
       t.text       :note
     end
+
+    create_table :tool_users do |t|
+      t.references :tool, null: false
+      t.integer    :work_group_id
+      t.string     :organization_name
+    end
   end
 end

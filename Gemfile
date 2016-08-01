@@ -54,6 +54,7 @@ group :development, :test do
   gem 'rspec-rails', '3.4.2'
   gem 'faker'
   gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'terminal-notifier'
   gem 'dotenv-rails'

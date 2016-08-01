@@ -1,0 +1,190 @@
+// Place all the styles related to the Tools controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "compass/css3";
+
+$theme-base: #fff;
+$theme-base-a: rgba($theme-base, .32);
+$theme-hl: #e53728;
+$thumb-v: 2 1 60 50;
+$thumb-v-s: 3;
+$thumb-u: GHz GB GB GB;
+$thumb-u-s: .75;
+
+$thumb-d: 1.25em;
+
+$u: 3em;
+
+$track-w: $u*11 + $thumb-d;
+$track-h: .75em;
+$track-r: .25em;
+$track-label: CPU RAM HDD Risk;
+
+$data:
+        (min: 0, val: 60, max: 100)
+        (min: 0, val: 50, max: 100)
+        (min: 0, val: 25, max: 100)
+        (min: 0, val: 85, max: 100);
+
+@function perc($d) {
+  $min: if(map-has-key($d, min), map-get($d, min), 0);
+  $val: if(map-has-key($d, val), map-get($d, val), 50);
+  $max: if(map-has-key($d, max), map-get($d, max), 100);
+
+  @return 100*($val - $min)/($max - $min);
+}
+
+@mixin track($flag: false) {
+  width: $track-w; height: $track-h;
+  border-radius: $track-r;
+
+  box-shadow:
+          0 1px 1px $theme-base-a;
+  background: $theme-base-a;
+
+  @if $flag {
+    .js & {
+      background:
+              linear-gradient($theme-base, $theme-base) no-repeat $theme-base-a;
+    }
+  }
+}
+
+@mixin track-fill($i: 1) {
+  background-size: (perc(nth($data, $i)))*1% 100%;
+}
+
+@mixin fill() {
+  border-radius: $track-r;
+  background: $theme-base;
+}
+
+@mixin thumb() {
+  box-sizing: border-box;
+  border: solid .125em $theme-hl;
+  width: $thumb-d; height: $thumb-d;
+  border-radius: 50%;
+  background: $theme-base;
+  cursor: ew-resize;
+}
+
+//html { background: $theme-hl; }
+
+//body { padding-top: 2em; }
+
+.meter-container {
+  background-color: #B00100;
+}
+
+input[type='range'] {
+  &,
+  &::-webkit-slider-runnable-track,
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  display: block;
+  border: none;
+  margin: 0 auto;
+  padding: 0;
+  width: $track-w; height: 4*$track-h;
+  opacity: .7;
+  background:
+          repeating-linear-gradient(90deg,
+                  $theme-base-a, $theme-base-a 1px,
+                  transparent 1px, transparent $u)
+          no-repeat 50% 50% content-box;
+  background-size: calc(#{9*$u} + 1px) 100%;
+  font-size: 1em;
+  cursor: pointer;
+
+  &::-webkit-slider-runnable-track {
+    position: relative;
+    @include track(true);
+  }
+  &::-moz-range-track {
+    @include track();
+  }
+  &::-ms-track {
+    border: none;
+    @include track();
+    color: transparent;
+  }
+
+  &::-moz-range-progress {
+    height: $track-h;
+    @include fill();
+  }
+  &::-ms-fill-lower {
+    @include fill();
+  }
+
+  &::-webkit-slider-thumb {
+    margin-top: ($track-h - $thumb-d)/2;
+    @include thumb();
+  }
+  &::-moz-range-thumb {
+    @include thumb();
+  }
+  &::-ms-thumb {
+    @include thumb();
+  }
+
+  &::-webkit-slider-runnable-track, /deep/ #track {
+    &:before {
+      position: absolute;
+      bottom: 100%; left: 0;
+      color: $theme-base;
+      line-height: 1.5;
+    }
+  }
+
+  [class*=webkit] & {
+    &::-webkit-slider-thumb, /deep/ #thumb {
+      &:before, &:after {
+        position: absolute;
+        bottom: 0;
+        color: $theme-base;
+        line-height: 1;
+      }
+      &:before {
+        box-sizing: border-box;
+        left: 100%;
+        padding-right: .0625em;
+        width: 2*$u/$thumb-v-s;
+        transform: translateY(8px);
+        font-size: $thumb-v-s*1em;
+        text-align: right;
+      }
+      &:after {
+        left: calc(100% + #{2*$u/$thumb-u-s});
+        font-size: $thumb-u-s*1em;
+      }
+    }
+  }
+
+  @for $i from 1 through 4 {
+    &:nth-of-type(#{$i}) {
+      .js &::-webkit-slider-runnable-track {
+        @include track-fill($i);
+      }
+
+      &::-webkit-slider-runnable-track, /deep/ #track {
+        &:before { content: '#{nth($track-label, $i)}'; }
+      }
+
+      [class*=webkit] & {
+        &::-webkit-slider-thumb, /deep/ #thumb {
+          &:before { content: '#{nth($thumb-v, $i)}'; }
+          &:after { content: '#{nth($thumb-u, $i)}'; }
+        }
+      }
+    }
+  }
+
+  &:focus {
+    outline: none;
+    opacity: .99;
+  }
+}

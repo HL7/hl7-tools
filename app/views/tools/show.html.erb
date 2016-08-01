@@ -8,6 +8,9 @@
   <% else -%>
       <span class="comment">No homepage specified</span>
   <% end -%>
+  <% if @tool.support_url -%>
+  &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Tool Issues', @tool.support_url %>
+  <% end -%>
 </p>
 
 <p>
@@ -19,10 +22,32 @@
   <%= @tool.purpose %>
 </p>
 
+<p>
+  <strong>Product Family:</strong>
+<% if @tool.product_tags.count > 0 -%>
+  <ul class="tag-list">
+    <% @tool.product_tags.each do |tag| -%>
+    <li><%= tag %></li>
+    <% end -%>
+  </ul>
+<% end -%>
+</p>
+
+<p>
+  <strong>HL7 Functional Areas:</strong>
+<% if @tool.functional_tags.count > 0 -%>
+  <ul class="tag-list">
+    <% @tool.functional_tags.each do |tag| -%>
+    <li><%= tag %></li>
+    <% end -%>
+  </ul>
+<% end -%>
+</p>
+
 <p><strong>Technologies:</strong></p>
 <ul>
   <% @tool.tool_technologies.each do |tech| -%>
-  <li><strong><%= tech.tech_code_value.print_name %></strong> <%= tech.tech_version %></li>
+  <li><%= tech.tech_code_value.print_name %> <%= tech.tech_version %></li>
   <% end -%>
 </ul>
 
@@ -69,10 +94,48 @@
 </div>
 
 <p><strong>People and Organizations associated with <%= @tool.name %>:</strong></p>
+<% if @tool.tool_persons.count > 0 -%>
 <ul>
-
+<% @tool.tool_persons.each do |person| -%>
+  <li>
+    <p>
+    <%= person.person_org.name %>
+      -<%= person.role_code_value.print_name %>-
+      <% if person.person_org.contact_phone || person.person_org.contact_email -%>
+      (<%= person.person_org.contact_phone %>
+      <%= person.person_org.contact_phone && person.person_org.contact_email ? ' | ' : '' %>
+          <%= person.person_org.contact_email %>)
+      <% end -%>
+    </p>
+  </li>
+<% end -%>
 </ul>
+<% else -%>
+    <p>none identified</p>
+<% end -%>
+<p>
+  <strong>Notes:</strong>
+  <% if @tool.tool_notes.count > 0 -%>
+  <ul>
+    <% @tool.tool_notes.each do |note| -%>
+    <li class="note">
+      <p>
+        <span class="note-date"><%= note.note_date %></span>
+        (<span class="note-author"><%= note.author %></span>)
+        <%= note.note %>
+      </p>
+    </li>
+    <% end -%>
+  </ul>
+  <% end -%>
+</p>
 
-<% if is_admin? %><%= link_to 'Edit', edit_tool_path(@tool) %> |<% end %>
+<p>
+  <strong>Known Users of the <%= @tool.name %></strong>
+  <% if @tool.tool_users.count > 0 -%>
+  <% end -%>
+</p>
+
+  <% if is_admin? %><%= link_to 'Edit', edit_tool_path(@tool) %> |<% end %>
 <%= link_to 'Back', tools_path %>
 

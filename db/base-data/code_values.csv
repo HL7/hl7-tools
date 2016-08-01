@@ -37,6 +37,7 @@ id,code_table,short_code,long_value,description,print_name,parent_id
 36,technology,xmi,XMI,XMI,XMI,
 37,technology,ppt,PowerPoint,PowerPoint,PowerPoint,
 38,technology,video,Video Content,"Various Video Content (wmv,m4v,avi)",Video Content,
+39,technology,txt,Text,Text Content,Plain Text,
 50,func-area,member,Membership,Membership,Membership,
 51,func-area,educate,Education,Providing education on HL7 Standards,Education,
 52,func-area,impl,Implementation,Aids with implementing HL7 Standards,Implementation,

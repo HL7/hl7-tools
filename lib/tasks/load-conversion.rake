@@ -5,20 +5,28 @@ namespace :data do
   task :tool_conversion do
     puts 'Beginning generation of tools load file....'
     rec_cnt = 0
+    note_cnt = 0
     first_rec = true
     new_csv = CSV.open(Rails.root + 'db/load-data/02-01-tools.csv', 'w')
     new_csv << %w(id name description purpose url support_url version internal
                   functional_area product rollout_date last_update_date created_at updated_at)
+    notes_csv = CSV.open(Rails.root + 'db/load-data/02-03-tool_notes.csv', 'w')
+    notes_csv << %w(id tool_id note note_date author)
     CSV.foreach(Rails.root + 'db/data-conversion/tools.csv') do |row|
-      unless first_rec
+      unless first_rec || row[0] == 'xx'
         new_csv << [ row[0], row[1], row[2], row[3], row[4], row[5], row[7],row[8],
                      wrap_array_type(row[9]), wrap_array_type(row[11]), row[12], row[13],
                      row[14], row[14] ]
         rec_cnt += 1
+        if row[17]
+          note_cnt += 1
+          notes_csv << [ note_cnt, row[0], row[17], row[14], 'initial load' ]
+        end
       end
       first_rec = false
     end
     new_csv.close
+    notes_csv.close
     puts "Generation of Tools complete, wrote #{rec_cnt} records"
 
     puts 'Beginning generation of tool technologies load file....'
@@ -27,7 +35,7 @@ namespace :data do
     new_csv = CSV.open(Rails.root + 'db/load-data/02-02-tool_technologies.csv', 'w')
     new_csv << %w(id tool_id technology tech_version note)
     CSV.foreach(Rails.root + 'db/data-conversion/tools.csv') do |row|
-      unless first_rec
+      unless first_rec || row[0] == 'xx'
         if row[6]
           tech_list = row[6].split
           tech_list.each do |tech_item|
@@ -41,13 +49,13 @@ namespace :data do
     new_csv.close
     puts "Generation of Tool Technologies complete, wrote #{rec_cnt} records"
 
-    puts 'Beginning generation of tool technologies load file....'
+    puts 'Beginning generation of tool dependencies load file....'
     rec_cnt = 0
     first_rec = true
     new_csv = CSV.open(Rails.root + 'db/load-data/02-02-tool_dependencies.csv', 'w')
     new_csv << %w(id tool_id dependency_id note)
     CSV.foreach(Rails.root + 'db/data-conversion/tools.csv') do |row|
-      unless first_rec
+      unless first_rec || row[0] == 'xx'
         if row[15]
           dep_list = row[15].split
           dep_list.each do |dep_item|
@@ -60,6 +68,10 @@ namespace :data do
     end
     new_csv.close
     puts "Generation of Tool Dependencies complete, wrote #{rec_cnt} records"
+  end
+
+  task :person_conversion do
+    puts '**not implemented**'
   end
 end
 
