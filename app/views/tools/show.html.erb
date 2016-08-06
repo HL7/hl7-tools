@@ -22,6 +22,7 @@
   <%= @tool.purpose %>
 </p>
 
+
 <p>
   <strong>Product Family:</strong>
 <% if @tool.product_tags.count > 0 -%>
@@ -77,6 +78,7 @@
   </tbody>
 </table>
 
+<% if @tool.active && @tool.tool_assessments.count > 0 -%>
 <p><strong>Assessment:</strong></p>
 <div class="meter-container">
   <section class="vertical-meter">
@@ -92,6 +94,7 @@
     <input disabled="true" type='range' min='0' max='100' step='5' value='85'/>
   </section>
 </div>
+<% end -%>
 
 <p><strong>People and Organizations associated with <%= @tool.name %>:</strong></p>
 <% if @tool.tool_persons.count > 0 -%>

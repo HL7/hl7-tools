@@ -25,3 +25,10 @@ Given(/^I should see the link '(.+)' with an address of '(.+)'$/) do |link_name,
   end
   expect(found).to eq('found')
 end
+
+# Then I see 4 tool rows
+Then(/^I see (\d+) (.*?) rows$/) do |n, class_name|
+  n = n.to_i
+  class_name = class_name.parameterize.underscore
+  expect(page).to have_css("tbody tr.#{class_name}", count: n)
+end

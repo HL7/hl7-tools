@@ -1,0 +1,4 @@
+id,tool_id,note,note_date,author
+100,87,"I was able to rebuild the MWB project with Delphi 2007.  Original code base was built with Delphi 6 and originates about 2002.  Code base contains about 300,000 lines of code and numerous open source or defunct libraries.  Code that we have was from MWB 6.8.0 the most recent release that Peter release was 6.8.19.  There is about 2 years of changes that is missing, this was an individual effort and there was no use of version control.  The code base can be compiled but is unmaintainable as written.  I would suggest moving forward the application define its core requirements and be implemented in a modern technology base .Net or Java.
+
+Delphi is a declining language, very few developers and resources still available.",2016-08-02,Matthew Graham

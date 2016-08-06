@@ -9,6 +9,9 @@ class CreateTools < ActiveRecord::Migration
       t.string  :version
       t.boolean :internal, null: false, default: true
       t.string  :functional_area, limit: 15, array: true
+      t.boolean :active, null: false, default: true
+      t.string  :license, limit: 15
+      t.string  :aka, array: true
       t.string  :product, limit: 15, array: true
       t.date    :rollout_date
       t.date    :last_update_date
@@ -45,12 +48,15 @@ class CreateTools < ActiveRecord::Migration
       t.references :tool, null: false
       t.references :dependency, null: false
       t.text       :note
+
+      t.index [:tool_id, :dependency_id], unique: true
     end
 
     create_table :tool_users do |t|
       t.references :tool, null: false
       t.integer    :work_group_id
       t.string     :organization_name
+      t.string     :external_list
     end
   end
 end
