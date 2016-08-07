@@ -11,7 +11,7 @@ class CreateTools < ActiveRecord::Migration
       t.string  :functional_area, limit: 15, array: true
       t.boolean :active, null: false, default: true
       t.string  :license, limit: 15
-      t.string  :aka, array: true
+      t.string  :aka
       t.string  :product, limit: 15, array: true
       t.date    :rollout_date
       t.date    :last_update_date

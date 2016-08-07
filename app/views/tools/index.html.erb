@@ -26,7 +26,13 @@
   <tbody>
     <% @tools.each do |tool| %>
       <tr>
-        <td><%= tool.name %></td>
+        <td>
+          <% if tool.active -%>
+              <%= tool.name %>
+          <% else -%>
+              <span class="inactive"><%= tool.name %></span>
+          <% end -%>
+          </td>
         <td><% if tool.functional_tags.count > 0 -%>
           <ul class="tag-list">
             <% tool.functional_tags.each do |tag| -%>

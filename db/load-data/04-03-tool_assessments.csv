@@ -1,0 +1,4 @@
+id,tool_id,assessment_date,required,risk,quality,sustainability,usability,note
+1,1,2016-08-07,f,60,70,70,70,Preliminary assessment done to assist with population of the Tooling Catalogue
+2,132,2016-08-07,y,75,75,60,70,
+3,87,2016-08-07,n,30,75,30,75,Code requires significant effort to modernize

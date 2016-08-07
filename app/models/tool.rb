@@ -28,6 +28,19 @@ class Tool < ActiveRecord::Base
     tags
   end
 
+  def last_assessment
+    tool_assessments.order(assessment_date: :desc).limit(1).first
+  end
+
+  def license_name
+    if license
+      code = CodeValue.find_by(code_table: 'license', code: license)
+      code.print_name
+    else
+      nil
+    end
+  end
+
   def self.query(search_params)
     the_arel = self.arel_table
     query = the_arel.project(the_arel[Arel.star])

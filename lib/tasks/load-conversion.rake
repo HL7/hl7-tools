@@ -19,7 +19,7 @@ namespace :data do
     CSV.foreach(Rails.root + 'db/data-conversion/tools.csv') do |row|
       unless first_rec || row[0] == 'xx'
         new_csv << [ row[0], row[1], row[2], row[3], row[4], row[5], row[7],row[8],
-                     wrap_array_type(row[9]), row[10], row[11], wrap_array_type(row[12]),
+                     wrap_array_type(row[9]), row[10], row[11], row[12],
                      wrap_array_type(row[14]), row[15], row[16],
                      row[17], row[17] ]
         rec_cnt += 1
@@ -98,11 +98,12 @@ namespace :data do
     puts 'Beginning generation of Tool Responsibilities load file....'
     rec_cnt = 0
     first_rec = true
+    date = Date.today
     new_csv = CSV.open(Rails.root + 'db/load-data/03-01-tool_people.csv', 'w')
     new_csv << %w(id tool_id person_org_id role activity notes updated_at)
     CSV.foreach(Rails.root + 'db/data-conversion/tool-responsibilities.csv') do |row|
       unless first_rec || row[0] == 'xx'
-        new_csv << [ row[0], row[1], row[3], row[5], row[6], row[7] ]
+        new_csv << [ row[0], row[1], row[3], wrap_array_type(row[5]), row[6], row[7], date ]
         rec_cnt += 1
       end
       first_rec = false

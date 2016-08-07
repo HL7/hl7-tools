@@ -40,7 +40,7 @@ id,code_table,short_code,long_value,description,print_name,parent_id
 39,technology,txt,Text,Text Content,Plain Text,
 40,technology,xquery,XQuery,XQuery,XQuery,
 41,technology,xforms,XForms,XForms,XForms,
-42,technology,mobile,Mobile,Mobile Application,Mobile App
+42,technology,mobile,Mobile,Mobile Application,Mobile App,
 43,technology,ios,iOS,Tool runs on iOS,iOS,
 44,technology,android,Android,Tool runs on Android,Android,
 45,technology,windows,MS Windows,Tool runs on MicroSoft Windows,MS Windows,

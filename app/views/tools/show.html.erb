@@ -13,6 +13,9 @@
   <% end -%>
 </p>
 
+<% unless @tool.active -%>
+<p class="important-notice">This tool is not active</p>
+<% end -%>
 <p>
   <%= @tool.description %>
 </p>
@@ -22,7 +25,12 @@
   <%= @tool.purpose %>
 </p>
 
-
+<% if @tool.aka -%>
+    <p>
+      <strong>Also Known As:</strong>
+      <%= @tool.aka %>
+    </p>
+<% end -%>
 <p>
   <strong>Product Family:</strong>
 <% if @tool.product_tags.count > 0 -%>
@@ -59,13 +67,13 @@
   <% end -%>
 </ul>
 
-
 <table>
   <thead>
   <tr>
     <th>Version</th>
     <th>Rollout Date</th>
     <th>Last Update</th>
+    <th>License</th>
   </tr>
   </thead>
 
@@ -74,24 +82,26 @@
     <td><%= @tool.version %></td>
     <td><%= @tool.rollout_date %></td>
     <td><%= @tool.last_update_date %></td>
+    <td><%= (@tool.license_name ? @tool.license_name : 'unspecified')  %></td>
   </tr>
   </tbody>
 </table>
 
 <% if @tool.active && @tool.tool_assessments.count > 0 -%>
-<p><strong>Assessment:</strong></p>
+    <% assess = @tool.last_assessment -%>
+<p><strong>Assessment:</strong> (done: <%= assess.assessment_date %>)</p>
 <div class="meter-container">
   <section class="vertical-meter">
-    <input id="risk" disabled="true" type='range' min='0' max='100' step='5' value='60' orient="vertical"/>
+    <input id="risk" disabled="true" type='range' min='0' max='100' step='5' value='<%= assess.risk %>' orient="vertical"/>
   </section>
   <section class="vertical-meter">
-    <input disabled="true" type='range' min='0' max='100' step='5' value='50'/>
+    <input disabled="true" type='range' min='0' max='100' step='5' value='<%= assess.quality %>'/>
   </section>
   <section class="vertical-meter">
-    <input disabled="true" type='range' min='0' max='100' step='5' value='25'/>
+    <input disabled="true" type='range' min='0' max='100' step='5' value='<%= assess.sustainability %>'/>
   </section>
   <section class="vertical-meter">
-    <input disabled="true" type='range' min='0' max='100' step='5' value='85'/>
+    <input disabled="true" type='range' min='0' max='100' step='5' value='<%= assess.usability %>'/>
   </section>
 </div>
 <% end -%>
@@ -105,7 +115,7 @@
     <%= person.person_org.name %>
       -<%= person.role_code_value.print_name %>-
       <% if person.person_org.contact_phone || person.person_org.contact_email -%>
-      (<%= person.person_org.contact_phone %>
+      (<%= person.person_org.contact_phone ? person.person_org.contact_phone : '' %>
       <%= person.person_org.contact_phone && person.person_org.contact_email ? ' | ' : '' %>
           <%= person.person_org.contact_email %>)
       <% end -%>
@@ -116,9 +126,9 @@
 <% else -%>
     <p>none identified</p>
 <% end -%>
+<% if @tool.tool_notes.count > 0 -%>
 <p>
   <strong>Notes:</strong>
-  <% if @tool.tool_notes.count > 0 -%>
   <ul>
     <% @tool.tool_notes.each do |note| -%>
     <li class="note">
@@ -130,15 +140,24 @@
     </li>
     <% end -%>
   </ul>
-  <% end -%>
 </p>
+<% end -%>
 
+<% if @tool.tool_users.count > 0 -%>
 <p>
   <strong>Known Users of the <%= @tool.name %></strong>
-  <% if @tool.tool_users.count > 0 -%>
-  <% end -%>
+  <ul>
+    <% @tool.tool_users.each do |user| -%>
+    <li><% if user.is_link? -%>
+          <%= link_to 'external users list', user.external_list %>
+        <% else -%>
+          <%= user.name_of_user %>
+        <% end -%></li>
+    <% end -%>
+  </ul>
 </p>
+<% end -%>
 
-  <% if is_admin? %><%= link_to 'Edit', edit_tool_path(@tool) %> |<% end %>
+<% if is_admin? %><%= link_to 'Edit', edit_tool_path(@tool) %> |<% end %>
 <%= link_to 'Back', tools_path %>
 

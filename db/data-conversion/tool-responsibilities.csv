@@ -1,23 +1,23 @@
 id,tool_id,tool_name,person_id,person_name,role,activity,notes
-1,1,CMET Tool,4,Andy Stechishin,dev,6,
+1,1,CMET Tool,4,Andy Stechishin,dev,6,Andy and Dave Hamill are working on adding the CMET ballot history to the database
 2,2,Trifolia Workbench HL7 Web Edition,20,Lantana,admin maint,8,
 3,9,Publishing Calendars and Schedules,7,Lynn Laakso,maint,8,
 4,10,Publishing Facilitators Guide,4,Andy Stechishin,maint,0,
-5,12,ART-DECOR,9,The ART-DECOR Expert Group,admin,9,
+5,12,ART-DECOR,9,The ART-DECOR Expert Group,admin,9,See the ART/DÉCOR website for individual involved in the project
 6,22,HL7 V3 PubDb,1,Woody Beeler,dev maint,0,
 7,22,HL7 V3 PubDb,7,Lynn Laakso,maint,4,
 8,23,HL7 V3 Design Repository,1,Woody Beeler,dev maint,0,
-9,23,HL7 V3 Design Repository,6,Jean Duteau,maint,4,
+9,23,HL7 V3 Design Repository,6,Jean Duteau,maint,4,Jean has taken over from Woody
 10,23,HL7 V3 Design Repository,12,Ted Klein,maint,8,
 11,24,The HL7 RMIM Designer,1,Woody Beeler,dev maint,0,
 12,24,The HL7 RMIM Designer,2,Lloyd McKenzie,dev,0,
 13,25,Rose Tree,1,Woody Beeler,dev maint,0,
 14,26,V3 Generator,1,Woody Beeler,dev maint,0,
-15,26,V3 Generator,6,Jean Duteau,maint,3,
+15,26,V3 Generator,6,Jean Duteau,maint,3,Jean will answer question and may be availabe to address bugs
 16,26,V3 Generator,2,Lloyd McKenzie,dev,1,
 17,28,MIF Schemas,2,Lloyd McKenzie,dev,1,
 18,29,MIF Utilities,1,Woody Beeler,dev maint,0,
-19,30,OID Registry,12,Ted Klein,history,3,
+19,30,OID Registry,12,Ted Klein,history,3,Ted was involved in identifying some requirements for the OID registry
 20,30,OID Registry,11,HL7 International,maint,5,
 21,31,Table 0396 Coding Systems,12,Ted Klein,maint,7,
 22,33,V2 Database,15,Frank Oemig,dev,8,
@@ -71,7 +71,7 @@ id,tool_id,tool_name,person_id,person_name,role,activity,notes
 70,118,EHR-S FM Profile Designer Tool,10,Results4Care,admin dev tester support,7,
 71,118,EHR-S FM Profile Designer Tool,5,Michael van der Zel,dev,6,
 72,119,Manuals for the EHR-S FM Profile Designer tool,10,Results4Care,maint,6,
-73,122,SKMT Glossary Tool,17,Heather Grain,support,7,
+73,122,SKMT Glossary Tool,17,Heather Grain,support,7,Heather coordinates activites on the SKMT
 74,123,FHIR Build,13,Grahame Grieve,dev admin,9,
 75,123,FHIR Build,2,Lloyd McKenzie,dev maint,9,
 76,123,FHIR Build,14,Josh Mandel,maint,5,
@@ -85,4 +85,6 @@ id,tool_id,tool_name,person_id,person_name,role,activity,notes
 84,55,Vocabulary Tooling,21,Russ Hamm,maint,0,
 85,55,Vocabulary Tooling,23,Wilfred Bonney,maint,0,
 86,30,OID Registry,23,Wilfred Bonney,maint,0,
-87,26,V3 Generator,22,Alexander Henket,maint,6,
+87,26,V3 Generator,22,Alexander Henket,maint,6,Alexander has worked on some generator defects
+88,132,EHR-S FM/FP Publishing,4,Andy Stechishin,dev maint,7,
+89,132,EHR-S FM/FP Publishing,10,Results4Care,admin tester support,7,
