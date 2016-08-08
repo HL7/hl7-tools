@@ -39,6 +39,8 @@
     <li><%= tag %></li>
     <% end -%>
   </ul>
+<% else %>
+    - not associated with any HL7 product family
 <% end -%>
 </p>
 
@@ -50,22 +52,31 @@
     <li><%= tag %></li>
     <% end -%>
   </ul>
+<% else -%>
+    - does not support HL7 functions
 <% end -%>
 </p>
 
-<p><strong>Technologies:</strong></p>
+<p><strong>Technologies:</strong>
+<% if @tool.tool_technologies.count > 0 -%>
 <ul>
   <% @tool.tool_technologies.each do |tech| -%>
   <li><%= tech.tech_code_value.print_name %> <%= tech.tech_version %></li>
   <% end -%>
 </ul>
+<% else -%>
+    - not specified
+<% end -%>
+</p>
 
+<% if @tool.tool_dependencies.count > 0 -%>
 <p><strong>Dependencies:</strong></p>
 <ul>
   <% @tool.tool_dependencies.each do |depend| -%>
       <li><strong><%= depend.dependency.name %></strong> <%= depend.note %></li>
   <% end -%>
 </ul>
+<% end -%>
 
 <table>
   <thead>
