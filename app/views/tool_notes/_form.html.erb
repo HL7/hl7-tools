@@ -1,0 +1,13 @@
+<%= form_for([@tool, @tool_note], builder: ApplicationFormBuilder) do |f| %>
+    <%= f.error_block %>
+
+    <%= f.date_field :note_date, label: 'Date' %>
+    <%= f.text_field :author %>
+    <%= f.text_area  :note %>
+
+    <% if f.record.new_record? -%>
+        <%= f.buttons cancel: @tool %>
+    <% else -%>
+        <%= f.buttons cancel: @tool %>
+    <% end -%>
+<% end %>

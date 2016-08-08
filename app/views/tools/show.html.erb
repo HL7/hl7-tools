@@ -169,6 +169,10 @@
 </p>
 <% end -%>
 
-<% if is_admin? %><%= link_to 'Edit', edit_tool_path(@tool) %> |<% end %>
+<% if is_admin? %>
+    <%= link_to 'Edit', edit_tool_path(@tool) %> |
+    <%= link_to 'Add New Note', new_tool_tool_note_path(@tool) %> |
+    <%= link_to 'Add Responsible Toolsmith', new_tool_tool_person_path(@tool) %> |
+<% end %>
 <%= link_to 'Back', tools_path %>
 

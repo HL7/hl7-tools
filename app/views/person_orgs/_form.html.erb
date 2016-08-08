@@ -1,0 +1,16 @@
+<%= form_for(@person_org, builder: ApplicationFormBuilder) do |f| %>
+  <%= f.error_block %>
+
+  <%= f.text_field :name %>
+  <%= f.text_field :contact_phone, label: 'Phone' %>
+  <%= f.text_field :contact_email, label: 'EMail' %>
+  <%= f.check_box :is_organization %>
+  <%= f.check_box :active %>
+    <%= f.text_field :notes %>
+
+    <% if f.record.new_record? -%>
+        <%= f.buttons cancel: person_orgs_path %>
+    <% else -%>
+        <%= f.buttons cancel: f.record %>
+    <% end -%>
+<% end %>

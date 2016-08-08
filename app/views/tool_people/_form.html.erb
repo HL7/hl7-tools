@@ -1,0 +1,15 @@
+<%= form_for([@tool, @tool_person], builder: ApplicationFormBuilder) do |f| %>
+    <%= f.error_block %>
+
+    <%= f.collection_select :person_org_id, PersonOrg.all, :id, :name %>
+    <%= f.collection_check_boxes :role, CodeValue.where(code_table: 'role'), :code, :print_name %>
+
+    <%= f.text_area  :notes %>
+    <%= f.hidden_field :updated_at, value: Date.today %>
+
+    <% if f.record.new_record? -%>
+        <%= f.buttons cancel: @tool %>
+    <% else -%>
+        <%= f.buttons cancel: @tool %>
+    <% end -%>
+<% end %>

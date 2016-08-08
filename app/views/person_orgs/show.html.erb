@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+
+<% content_for :title, @person_org.name %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @person_org.name %>
+</p>
+
+<p>
+  <strong>Phone: </strong>
+  <%= @person_org.contact_phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @person_org.contact_email %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <input class="display" disabled="true" type="checkbox" <% if @person_org.is_organization %>checked<% end %>>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <input class="display" disabled="true" type="checkbox" <% if @person_org.active %>checked<% end %>>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @person_org.notes %>
+</p>
+<%= link_to 'Edit', edit_person_org_path(@person_org) %> |
+<%= link_to 'Back', person_orgs_path %>

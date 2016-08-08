@@ -1,0 +1,29 @@
+<% content_for :title, 'Toolsmiths' %>
+
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @person_orgs.each do |person_org| %>
+      <tr>
+        <td><%= person_org.name %></td>
+        <td>
+          <%= link_to(person_org, class: 'detail-link') do %>
+              <span class="article-detail">Detail</span><span class="link-pointer"> &#x3e;</span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Toolsmith', new_person_org_path %>

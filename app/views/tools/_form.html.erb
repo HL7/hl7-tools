@@ -1,0 +1,26 @@
+<%= form_for(@tool, builder: ApplicationFormBuilder) do |f| %>
+    <%= f.error_block %>
+
+    <%= f.text_field :name %>
+    <%= f.text_field :description %>
+    <%= f.text_field :purpose %>
+    <%= f.text_field :url, label: 'URL' %>
+    <%= f.text_field :support_url, label: 'Support URL' %>
+    <%= f.text_field :version %>
+    <%= f.check_box :internal, label: 'Internal Tool' %>
+    <%= f.check_box :active %>
+    <%= f.text_field :aka, label: 'Other names' %>
+    <%= f.date_field :rollout_date %>
+    <%= f.date_field :last_update_date, label: 'Last Update' %>
+
+    <%= f.collection_check_boxes :product, CodeValue.where(code_table: 'product'), :code, :print_name %>
+    <%= f.collection_check_boxes :functional_area, CodeValue.where(code_table: 'func-area'), :code, :print_name %>
+    <%= f.collection_select :license, CodeValue.where(code_table: 'license'), :code, :print_name %>
+
+
+    <% if f.record.new_record? -%>
+        <%= f.buttons cancel: tools_path %>
+    <% else -%>
+        <%= f.buttons cancel: f.record %>
+    <% end -%>
+<% end %>

@@ -50,6 +50,19 @@ class ApplicationFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
+  def error_block(*args)
+    if object.errors.any?
+      content_tag(:div, id: "error_explanation") do
+        content_tag(:h3, pluralize(object.errors.count, "error") + " prohibited this record from being saved:") +
+            content_tag(:ul) do
+              object.errors.full_messages.each do |msg|
+                concat(content_tag(:li, msg))
+              end
+            end
+      end
+    end
+  end
+
   def record
     @object
   end
