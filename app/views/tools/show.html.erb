@@ -18,14 +18,6 @@
 <% unless @tool.active -%>
 <p class="important-notice">This tool is not active</p>
 <% end -%>
-<p>
-  <%= @tool.description %>
-</p>
-
-<p>
-  <strong>Purpose:</strong>
-  <%= @tool.purpose %>
-</p>
 
 <% if @tool.aka -%>
     <p>
@@ -33,6 +25,13 @@
       <%= @tool.aka %>
     </p>
 <% end -%>
+<%= simple_format(@tool.description) %>
+
+<p>
+  <strong>Purpose:</strong>
+  <%= @tool.purpose %>
+</p>
+
 <p>
   <strong>Product Family:</strong>
 <% if @tool.product_tags.count > 0 -%>
@@ -103,38 +102,29 @@
 <% if @tool.active && @tool.tool_assessments.count > 0 -%>
     <% assess = @tool.last_assessment -%>
 <p><strong>Assessment:</strong> (done: <%= assess.assessment_date %>)</p>
-<div class="meter-container">
-  <section class="vertical-meter">
-    <input id="risk" disabled="true" type='range' min='0' max='100' step='5' value='<%= assess.risk %>' orient="vertical"/>
-  </section>
-  <section class="vertical-meter">
-    <input disabled="true" type='range' min='0' max='100' step='5' value='<%= assess.quality %>'/>
-  </section>
-  <section class="vertical-meter">
-    <input disabled="true" type='range' min='0' max='100' step='5' value='<%= assess.sustainability %>'/>
-  </section>
-  <section class="vertical-meter">
-    <input disabled="true" type='range' min='0' max='100' step='5' value='<%= assess.usability %>'/>
-  </section>
+    <input type="hidden" id="meter-value" value="<%= (assess.risk + assess.quality + assess.sustainability + assess.usability) / 4 %>">
+
+<div style="height: 320px; width: 320px">
+  <svg style="height: 100%; width: 100%; transform: rotateX(180deg);">
+    <circle id="outline_curves" r="130" cx="50%" cy="50%" stroke="#000" stroke-width="45"
+            stroke-dasharray="408, 817" fill="none"></circle>
+    <circle id="low" r="130" cx="50%" cy="50%" stroke="#E04644" stroke-width="40"
+            stroke-dasharray="408, 817" fill="none"></circle>
+    <circle id="mid" r="130" cx="50%" cy="50%" stroke="#FDE47F" stroke-width="40"
+            stroke-dasharray="272, 817" fill="none"></circle>
+    <circle id="hi" r="130" cx="50%" cy="50%" stroke="#32CD32" stroke-width="40"
+            stroke-dasharray="136, 817" fill="none"></circle>
+    <!--<circle id="mask" r="130" cx="50%" cy="50%" stroke="#f6f6f6"
+            stroke-width="40" stroke-dasharray="50, 817" fill="none">-->
+    </circle>
+    <!-- Outline Ends -->
+    <circle id="outline_ends" r="130" cx="50%" cy="50%" stroke="#000"
+            stroke-width="45" stroke-dasharray="1, 408" fill="none"></circle>
+    <circle id="needle-centre" r="12" cx="50%" cy="50%" stroke="#000" stroke-width="3" />
+    <polygon points="<%= needle_path((assess.risk + assess.quality + assess.sustainability + assess.usability) / 4) %>"></polygon>
+  </svg>
+
 </div>
-    <div id="wrapper">
-      <svg id="meter">
-        <circle id="outline_curves" class="circle outline"  cx="50%" cy="50%">
-        </circle>
-        <circle id="low" class="circle range" cx="50%" cy="50%" stroke="#E04644">
-        </circle>
-        <circle id="avg" class="circle range" cx="50%" cy="50%" stroke="#FDE47F">
-        </circle>
-        <circle id="high" class="circle range" cx="50%" cy="50%" stroke="#7CCCE5">
-        </circle>
-        <circle id="mask" class="circle" cx="50%" cy="50%" >
-        </circle>
-        <circle id="outline_ends" class="circle outline" cx="50%" cy="50%">
-        </circle>
-      </svg>
-      <%= image_tag 'svg-meter-gauge-needle.svg', id: 'meter_needle' %>
-      <input type="hidden" id="meter-value" value="<%= (assess.risk + assess.quality + assess.sustainability + assess.usability) / 4 %>">
-    </div>
 <% end -%>
 
 <p><strong>People and Organizations associated with <%= @tool.name %>:</strong></p>
@@ -198,44 +188,3 @@
     <%= link_to 'Add New Technology', new_tool_tool_technology_path(@tool) %> |
     <%= link_to 'Add New Tool User', new_tool_tool_user_path(@tool) %>
 <% end %>
-
-<script>
-  var r = 400;
-  var circles = document.querySelectorAll('.circle');
-  var total_circles = circles.length;
-  if total_circles > 0 {
-    for (var i = 0; i < total_circles; i++) {
-      circles[i].setAttribute('r', r);
-    }
-    /* set meter's wrapper dimension */
-    var meter_dimension = (r * 2) + 100;
-    var wrapper = document.querySelector('#wrapper');
-    wrapper.style.width = meter_dimension + 'px';
-    wrapper.style.height = meter_dimension + 'px';
-    /* add strokes to circles  */
-    var cf = 2 * Math.PI * r;
-    var semi_cf = cf / 2;
-    var semi_cf_1by3 = semi_cf / 3;
-    var semi_cf_2by3 = semi_cf_1by3 * 2;
-    document.querySelector('#outline_curves')
-        .setAttribute('stroke-dasharray', semi_cf + ',' + cf);
-    document.querySelector('#low')
-        .setAttribute('stroke-dasharray', semi_cf + ',' + cf);
-    document.querySelector('#avg')
-        .setAttribute('stroke-dasharray', semi_cf_2by3 + ',' + cf);
-    document.querySelector('#high')
-        .setAttribute('stroke-dasharray', semi_cf_1by3 + ',' + cf);
-    document.querySelector('#outline_ends')
-        .setAttribute('stroke-dasharray', 2 + ',' + (semi_cf - 2));
-    document.querySelector('#mask')
-        .setAttribute('stroke-dasharray', semi_cf + ',' + cf);
-    /*bind range slider event*/
-    var slider = document.querySelector('#meter-value');
-    var mask = document.querySelector('#mask');
-    var meter_needle = document.querySelector('#meter_needle');
-    var percent = slider.value;
-    var meter_value = semi_cf - ((percent * semi_cf) / 100);
-    mask.setAttribute('stroke-dasharray', meter_value + ',' + cf);
-    meter_needle.style.transform = 'rotate(' + (270 + ((percent * 180) / 100)) + 'deg)';
-  }
-</script>
