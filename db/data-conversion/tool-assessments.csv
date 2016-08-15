@@ -1,73 +1,73 @@
 id,tool_id,substring,assessment_date,required,risk,quality,sustainability,usability,note
-1,1,CMET Tool,16-08-07,f,60,70,70,70,Preliminary assessment done to assist with population of the Tooling Catalogue
-2,132,EHR-S FM/FP Publishing,16-08-07,t,75,75,60,70,requires command line skills
-3,87,Messaging Workbench,16-08-07,f,30,75,30,75,Code requires significant effort to modernize
-4,1,CMET Tool,16-08-13,f,65,70,70,70,
-5,9,Publishing Calendars and Sche,16-08-13,t,80,80,80,80,
-6,10,Publishing Facilitators Guide,16-08-13,f,0,80,55,70,
-7,11,V2.x Style Guide,16-08-13,t,0,80,80,60,
-8,22,HL7 V3 PubDb,16-08-13,t,30,80,40,50,Requires training to operate
-9,23,HL7 V3 Design Repository,16-08-13,t,80,80,50,70,
-10,24,The HL7 RMIM Designer,16-08-13,t,0,80,20,60,Requires training to operate
-11,25,Rose Tree,16-08-13,t,0,80,50,70,Interface is becoming outdated
-12,26,V3 Generator,16-08-13,t,65,70,30,40,Requires advanced command line skills
-13,28,MIF Schemas,16-08-13,t,0,80,60,65,
-14,29,MIF Utilities,16-08-13,f,0,60,40,50,
-15,30,OID Registry,16-08-13,t,65,60,50,50,
-16,31,Table 0396 Coding Systems,16-08-13,t,70,70,60,60,
-17,33,V2 Database,16-08-13,t,80,80,30,60,
-18,34,HL7 V2 PubTool,16-08-13,t,80,60,30,40,Unknown if can be run by anyone other than the maintainer
-19,35,HL7 V3 Pub Tooling,16-08-13,t,65,65,55,50,Requires command line skills in a Windows environment
-20,36,Ballot Database,16-08-13,t,70,70,70,70,
-21,37,Ballot Desktop,16-08-13,t,70,80,75,80,
-22,38,Project Insight,16-08-13,t,70,80,80,70,
-23,39,Go Members,16-08-13,t,70,80,80,65,Oauth capabilities would be useful to allow single sign-on in future projects
-24,40,Main HL7 Wiki,16-08-13,t,70,80,80,80,
-25,41,TSC Wiki,16-08-13,t,70,80,80,80,
-26,42,Editing Wiki,16-08-13,f,70,80,80,80,
-27,43,Tools and Services Catalogue,16-08-13,f,85,80,75,80,
-28,44,Ballot Spreadsheet,16-08-13,t,70,75,75,80,
-29,45,Ballot Comment Amalgamation M,16-08-13,t,65,80,75,80,
-30,66,Java SIG API Demo Release,16-08-13,f,0,80,60,70,
-31,67,Java SIG Public License,16-08-13,f,0,80,70,70,
-32,46,MAX Extension,16-08-13,f,65,70,70,70,
-33,47,DECOR Template Exchange,16-08-13,f,70,80,70,80,
-34,48,DSTU Comment App,16-08-13,t,65,70,70,70,
-35,49,Help Desk,16-08-13,f,65,80,70,70,
-36,50,WGM Room Booking,16-08-13,t,80,80,80,80,
-37,51,Conference Call Center,16-08-13,t,70,70,80,70,
-38,52,RegOnline,16-08-13,t,65,70,80,70,
-39,53,MobiApp,16-08-13,f,0,70,80,80,
-40,54,ListServer (Lyris),16-08-13,t,70,60,70,60,
-41,55,Vocabulary Tooling,16-08-13,f,0,70,20,0,
-42,56,Version 3 Vocabulary Database,16-08-13,f,0,70,50,50,
-43,68,PubDb Manager,16-08-13,f,0,60,40,50,
-44,69,Installing and Configuring HL,16-08-13,f,0,80,70,80,
-45,70,Reference Information Model,16-08-13,t,70,70,60,80,
-46,71,Submit HL7 v3 proposals,16-08-13,f,0,70,40,70,
-47,72,V3 Glossary,16-08-13,t,0,70,50,70,
-48,97,HL7 Glossary of Terms,16-08-13,f,30,70,80,70,
-49,75,Web Widget,16-08-13,f,0,60,40,50,Requires running IIS on a your local Windows laptop
-50,77,V2 & V3 Mapping Tools,16-08-13,f,0,60,50,50,More research required for a more accurate assessment
-51,79,Global Message Profile Tool,16-08-13,f,0,70,70,70,More research required for a more accurate assessment
-52,82,HL7 Version 2.5.1 ELR ,16-08-13,f,0,70,70,70,More research required for a more accurate assessment
-53,86,HL7 Version 2.x Message Profi,16-08-13,f,0,70,70,70,More research required for a more accurate assessment
-54,91,V2.x Proposals Database,16-08-13,f,65,80,70,70,
-55,94,Training and Certification Ev,16-08-13,f,70,70,70,70,More research required for a more accurate assessment
-56,95,HL7 Training,16-08-13,t,70,70,70,70,More research required for a more accurate assessment
-57,96,HL7 Certification,16-08-13,t,70,70,70,70,More research required for a more accurate assessment
-58,100,GForge (HL7 Project Homebase),16-08-13,t,70,70,80,60,
-59,103,HL7 Searchable Project Databa,16-08-13,f,70,80,80,80,
-60,104,PBS Metrics Report,16-08-13,t,80,70,70,80,
-61,115,HL7 Reference Model,16-08-13,f,70,70,60,80,
-62,118,EHR-S FM Profile Designer Too,16-08-13,f,70,80,70,70,Requires familiarity with Enterprise Architect
-63,119,Manuals for the EHR-S FM Prof,16-08-13,f,65,80,80,80,
-64,121,C-CDA Examples,16-08-13,f,0,80,70,50,
-65,123,FHIR Build,16-08-13,t,85,60,70,60,"Require command line skills, performs software installations as part of the process, requires non-HL7 web server to be running"
-66,124,FHIR IG Publisher Documentati,16-08-13,f,80,70,70,70,
-67,125,FHIR IG publisher,16-08-13,t,80,70,70,70,
-68,126,HL7 Tooling FAQs,16-08-13,f,0,80,60,80,
-69,130,FHIR Main Vocabulary Server,16-08-13,t,80,80,30,80,
-70,131,C-CDA 2.1 Samples and Query T,16-08-13,f,85,80,80,80,In alpha at time of assessment
-71,132,EHR-S FM/FP Publishing,16-08-13,f,75,75,60,70,Requires command line skills
-72,136,Education Portal,16-08-13,t,65,75,75,75,
+1,1,CMET Tool,2016-08-07,f,60,70,70,70,Preliminary assessment done to assist with population of the Tooling Catalogue
+2,132,EHR-S FM/FP Publishing,2016-08-07,t,75,75,60,70,requires command line skills
+3,87,Messaging Workbench,2016-08-07,f,30,75,30,75,Code requires significant effort to modernize
+4,1,CMET Tool,2016-08-13,f,65,70,70,70,
+5,9,Publishing Calendars and Sche,2016-08-13,t,80,80,80,80,
+6,10,Publishing Facilitators Guide,2016-08-13,f,0,80,55,70,
+7,11,V2.x Style Guide,2016-08-13,t,0,80,80,60,
+8,22,HL7 V3 PubDb,2016-08-13,t,30,80,40,50,Requires training to operate
+9,23,HL7 V3 Design Repository,2016-08-13,t,80,80,50,70,
+10,24,The HL7 RMIM Designer,2016-08-13,t,0,80,20,60,Requires training to operate
+11,25,Rose Tree,2016-08-13,t,0,80,50,70,Interface is becoming outdated
+12,26,V3 Generator,2016-08-13,t,65,70,30,40,Requires advanced command line skills
+13,28,MIF Schemas,2016-08-13,t,0,80,60,65,
+14,29,MIF Utilities,2016-08-13,f,0,60,40,50,
+15,30,OID Registry,2016-08-13,t,65,60,50,50,
+16,31,Table 0396 Coding Systems,2016-08-13,t,70,70,60,60,
+17,33,V2 Database,2016-08-13,t,80,80,30,60,
+18,34,HL7 V2 PubTool,2016-08-13,t,80,60,30,40,Unknown if can be run by anyone other than the maintainer
+19,35,HL7 V3 Pub Tooling,2016-08-13,t,65,65,55,50,Requires command line skills in a Windows environment
+20,36,Ballot Database,2016-08-13,t,70,70,70,70,
+21,37,Ballot Desktop,2016-08-13,t,70,80,75,80,
+22,38,Project Insight,2016-08-13,t,70,80,80,70,
+23,39,Go Members,2016-08-13,t,70,80,80,65,Oauth capabilities would be useful to allow single sign-on in future projects
+24,40,Main HL7 Wiki,2016-08-13,t,70,80,80,80,
+25,41,TSC Wiki,2016-08-13,t,70,80,80,80,
+26,42,Editing Wiki,2016-08-13,f,70,80,80,80,
+27,43,Tools and Services Catalogue,2016-08-13,f,85,80,75,80,
+28,44,Ballot Spreadsheet,2016-08-13,t,70,75,75,80,
+29,45,Ballot Comment Amalgamation M,2016-08-13,t,65,80,75,80,
+30,66,Java SIG API Demo Release,2016-08-13,f,0,80,60,70,
+31,67,Java SIG Public License,2016-08-13,f,0,80,70,70,
+32,46,MAX Extension,2016-08-13,f,65,70,70,70,
+33,47,DECOR Template Exchange,2016-08-13,f,70,80,70,80,
+34,48,DSTU Comment App,2016-08-13,t,65,70,70,70,
+35,49,Help Desk,2016-08-13,f,65,80,70,70,
+36,50,WGM Room Booking,2016-08-13,t,80,80,80,80,
+37,51,Conference Call Center,2016-08-13,t,70,70,80,70,
+38,52,RegOnline,2016-08-13,t,65,70,80,70,
+39,53,MobiApp,2016-08-13,f,0,70,80,80,
+40,54,ListServer (Lyris),2016-08-13,t,70,60,70,60,
+41,55,Vocabulary Tooling,2016-08-13,f,0,70,20,0,
+42,56,Version 3 Vocabulary Database,2016-08-13,f,0,70,50,50,
+43,68,PubDb Manager,2016-08-13,f,0,60,40,50,
+44,69,Installing and Configuring HL,2016-08-13,f,0,80,70,80,
+45,70,Reference Information Model,2016-08-13,t,70,70,60,80,
+46,71,Submit HL7 v3 proposals,2016-08-13,f,0,70,40,70,
+47,72,V3 Glossary,2016-08-13,t,0,70,50,70,
+48,97,HL7 Glossary of Terms,2016-08-13,f,30,70,80,70,
+49,75,Web Widget,2016-08-13,f,0,60,40,50,Requires running IIS on a your local Windows laptop
+50,77,V2 & V3 Mapping Tools,2016-08-13,f,0,60,50,50,More research required for a more accurate assessment
+51,79,Global Message Profile Tool,2016-08-13,f,0,70,70,70,More research required for a more accurate assessment
+52,82,HL7 Version 2.5.1 ELR ,2016-08-13,f,0,70,70,70,More research required for a more accurate assessment
+53,86,HL7 Version 2.x Message Profi,2016-08-13,f,0,70,70,70,More research required for a more accurate assessment
+54,91,V2.x Proposals Database,2016-08-13,f,65,80,70,70,
+55,94,Training and Certification Ev,2016-08-13,f,70,70,70,70,More research required for a more accurate assessment
+56,95,HL7 Training,2016-08-13,t,70,70,70,70,More research required for a more accurate assessment
+57,96,HL7 Certification,2016-08-13,t,70,70,70,70,More research required for a more accurate assessment
+58,100,GForge (HL7 Project Homebase),2016-08-13,t,70,70,80,60,
+59,103,HL7 Searchable Project Databa,2016-08-13,f,70,80,80,80,
+60,104,PBS Metrics Report,2016-08-13,t,80,70,70,80,
+61,115,HL7 Reference Model,2016-08-13,f,70,70,60,80,
+62,118,EHR-S FM Profile Designer Too,2016-08-13,f,70,80,70,70,Requires familiarity with Enterprise Architect
+63,119,Manuals for the EHR-S FM Prof,2016-08-13,f,65,80,80,80,
+64,121,C-CDA Examples,2016-08-13,f,0,80,70,50,
+65,123,FHIR Build,2016-08-13,t,85,60,70,60,"Require command line skills, performs software installations as part of the process, requires non-HL7 web server to be running"
+66,124,FHIR IG Publisher Documentati,2016-08-13,f,80,70,70,70,
+67,125,FHIR IG publisher,2016-08-13,t,80,70,70,70,
+68,126,HL7 Tooling FAQs,2016-08-13,f,0,80,60,80,
+69,130,FHIR Main Vocabulary Server,2016-08-13,t,80,80,30,80,
+70,131,C-CDA 2.1 Samples and Query T,2016-08-13,f,85,80,80,80,In alpha at time of assessment
+71,132,EHR-S FM/FP Publishing,2016-08-13,f,75,75,60,70,Requires command line skills
+72,136,Education Portal,2016-08-13,t,65,75,75,75,
