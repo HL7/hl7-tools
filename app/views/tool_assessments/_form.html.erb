@@ -2,10 +2,74 @@
     <%= f.error_block %>
 
     <%= f.hidden_field :assessment_date %>
-    <%= f.range_field :risk, in: 0..100, step: 5 %>
-    <%= f.range_field :quality, in: 0..100, step: 5 %>
-    <%= f.range_field :sustainability, in: 0..100, step: 5 %>
-    <%= f.range_field :usability, in: 0..100, step: 5 %>
+    <div class="field">
+      <label class="main-label" for="tool_assessment_risk">Risk Level:</label>
+      <div class="field-entry">
+        <div class="range">
+          <input type="range" min="0" max="10" steps="1" value="0" id="tool_assessment_risk" name="tool_assessment[risk]">
+        </div>
+
+        <ul class="range-labels">
+          <% ToolAssessment::RISK_LEVEL.each_with_index do |level, indx| %>
+              <li <%= indx == f.record.risk ? 'class="active selected"' : '' %>><%= level %></li>
+          <% end -%>
+        </ul>
+      </div>
+    </div>
+
+    <div class="field" style="height: 40px">&nbsp;</div>
+
+    <div class="field">
+      <label class="main-label" for="tool_assessment_quality">Quality Level:</label>
+      <div class="field-entry">
+        <div class="range">
+          <input type="range" min="0" max="10" steps="1" value="0" id="tool_assessment_quality" name="tool_assessment[quality]">
+        </div>
+
+        <ul class="range-labels">
+          <% ToolAssessment::QUALITY_LEVEL.each_with_index do |level, indx| %>
+              <li <%= indx == f.record.quality ? 'class="active selected"' : '' %>><%= level %></li>
+          <% end -%>
+        </ul>
+      </div>
+    </div>
+
+    <div class="field" style="height: 80px">&nbsp;</div>
+
+    <div class="field">
+      <label class="main-label" for="tool_assessment_sustainability">Sustainability Level:</label>
+      <div class="field-entry">
+        <div class="range">
+          <input type="range" min="0" max="10" steps="1" value="0" id="tool_assessment_sustainability" name="tool_assessment[sustainability]">
+        </div>
+
+        <ul class="range-labels">
+          <% ToolAssessment::SUSTAINABILITY_LEVEL.each_with_index do |level, indx| %>
+              <li <%= indx == f.record.sustainability ? 'class="active selected"' : '' %>><%= level %></li>
+          <% end -%>
+        </ul>
+      </div>
+    </div>
+
+    <div class="field" style="height: 40px">&nbsp;</div>
+
+    <div class="field">
+      <label class="main-label" for="tool_assessment_usability">Usability Level:</label>
+      <div class="field-entry">
+        <div class="range">
+          <input type="range" min="0" max="10" steps="1" value="0" id="tool_assessment_usability" name="tool_assessment[usability]">
+        </div>
+
+        <ul class="range-labels">
+          <% ToolAssessment::USABILITY_LEVEL.each_with_index do |level, indx| %>
+              <li <%= indx == f.record.usability ? 'class="active selected"' : '' %>><%= level %></li>
+          <% end -%>
+        </ul>
+      </div>
+    </div>
+
+    <div class="field" style="height: 80px">&nbsp;</div>
+
     <%= f.text_area  :note %>
 
     <% if f.record.new_record? -%>

@@ -3,34 +3,23 @@
 
     <%= f.collection_select :person_org_id, PersonOrg.all, :id, :name, label: 'Person or Organization:' %>
     <%= f.collection_check_boxes :role, CodeValue.where(code_table: 'role'), :code, :print_name %>
-    <%= f.range_field :activity, in: 0..10, step: 1,  oninput: 'activity-output.value=value', list: 'activity-list' %>
-    <output for="tool_person_activity" id="activity-output"></output>
-    <datalist id="activity-list">
-      <% (0..10).each do |level| %>
-      <option><%= level %></option>
-      <% end %>
-    </datalist>
 
-    <div class="range">
-      <input type="range" min="0" max="10" steps="1" value="0">
+    <div class="field">
+      <label class="main-label" for="tool_person_activity">Activity Level:</label>
+      <div class="field-entry">
+        <div class="range">
+          <input type="range" min="0" max="10" steps="1" value="0" id="tool_person_activity" name="tool_person[activity]">
+        </div>
+
+        <ul class="range-labels">
+          <% ToolPerson::ACTIVE_LEVEL.each_with_index do |level, indx| %>
+              <li <%= indx == f.record.activity ? 'class="active selected"' : '' %>><%= level %></li>
+          <% end -%>
+        </ul>
+      </div>
     </div>
 
-    <ul class="range-labels">
-      <% ToolPerson::ACTIVE_LEVEL.each_with_index do |level, indx| %>
-      <li <%= indx == f.record.activity ? 'class="active selected"' : '' %>><%= level %></li>
-      <% end -%>
-<!--      <li class="active selected">not active</li>
-      <li>emergencies only</li>
-      <li>very limited</li>
-      <li>limited</li>
-      <li>when needed</li>
-      <li>occasional</li>
-      <li>up to date</li>
-      <li>regular</li>
-      <li>current</li>
-      <li>frequent</li>
-      <li>full-time</li> -->
-    </ul>
+    <div class="field" style="height: 40px">&nbsp;</div>
     <%= f.text_area  :notes %>
     <%= f.hidden_field :updated_at, value: Date.today %>
 
