@@ -10,7 +10,7 @@ class ApplicationFormBuilder < ActionView::Helpers::FormBuilder
   alias_method :old_collection_select, :collection_select
 
   %w[ number_field text_field text_area check_box collection_select file_field
-      collection_check_boxes collection_radio_buttons date_field ].each do |method_name|
+      collection_check_boxes collection_radio_buttons date_field range_field ].each do |method_name|
     define_method(method_name) do |the_method_name, *args, &block|
       content_tag :div, class: 'field' do
         field_label(the_method_name, *args) +
@@ -52,8 +52,8 @@ class ApplicationFormBuilder < ActionView::Helpers::FormBuilder
 
   def error_block(*args)
     if object.errors.any?
-      content_tag(:div, id: "error_explanation") do
-        content_tag(:h3, pluralize(object.errors.count, "error") + " prohibited this record from being saved:") +
+      content_tag(:div, id: 'error_explanation') do
+        content_tag(:h3, pluralize(record.errors.count, 'error') + ' prohibited this record from being saved:') +
             content_tag(:ul) do
               object.errors.full_messages.each do |msg|
                 concat(content_tag(:li, msg))

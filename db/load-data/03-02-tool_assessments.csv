@@ -1,0 +1,73 @@
+id,tool_id,assessment_date,required,risk,quality,sustainability,usability,notes
+1,1,2016-08-07,f,60,70,70,70,Preliminary assessment done to assist with population of the Tooling Catalogue
+2,132,2016-08-07,t,75,75,60,70,requires command line skills
+3,87,2016-08-07,f,30,75,30,75,Code requires significant effort to modernize
+4,1,2016-08-13,f,65,0,0,0,
+5,9,2016-08-13,t,80,80,80,80,
+6,10,2016-08-13,f,0,80,55,70,
+7,11,2016-08-13,t,0,80,80,60,
+8,22,2016-08-13,t,30,80,40,50,Requires training to operate
+9,23,2016-08-13,t,80,80,50,70,
+10,24,2016-08-13,t,0,80,20,60,Requires training to operate
+11,25,2016-08-13,t,0,80,50,70,Interface is becoming outdated
+12,26,2016-08-13,t,65,70,30,40,Requires advanced command line skills
+13,28,2016-08-13,t,0,80,60,65,
+14,29,2016-08-13,f,0,60,40,50,
+15,30,2016-08-13,t,65,60,50,50,
+16,31,2016-08-13,t,70,70,60,60,
+17,33,2016-08-13,t,80,80,30,60,
+18,34,2016-08-13,t,80,60,30,40,Unknown if can be run by anyone other than the maintainer
+19,35,2016-08-13,t,65,65,55,50,Requires command line skills in a Windows environment
+20,36,2016-08-13,t,70,70,70,70,
+21,37,2016-08-13,t,70,80,75,80,
+22,38,2016-08-13,t,70,80,80,70,
+23,39,2016-08-13,t,70,80,80,65,Oauth capabilities would be useful to allow single sign-on in future projects
+24,40,2016-08-13,t,70,80,80,80,
+25,41,2016-08-13,t,70,80,80,80,
+26,42,2016-08-13,f,70,80,80,80,
+27,43,2016-08-13,f,85,80,75,80,
+28,44,2016-08-13,t,70,75,75,80,
+29,45,2016-08-13,t,65,80,75,80,
+30,66,2016-08-13,f,0,80,60,70,
+31,67,2016-08-13,f,0,80,70,70,
+32,46,2016-08-13,f,65,70,70,70,
+33,47,2016-08-13,f,70,80,70,80,
+34,48,2016-08-13,t,65,70,70,70,
+35,49,2016-08-13,f,65,80,70,70,
+36,50,2016-08-13,t,80,80,80,80,
+37,51,2016-08-13,t,70,70,80,70,
+38,52,2016-08-13,t,65,70,80,70,
+39,53,2016-08-13,f,0,70,80,80,
+40,54,2016-08-13,t,70,60,70,60,
+41,55,2016-08-13,f,0,70,20,0,
+42,56,2016-08-13,f,0,70,50,50,
+43,68,2016-08-13,f,0,60,40,50,
+44,69,2016-08-13,f,0,80,70,80,
+45,70,2016-08-13,t,70,70,60,80,
+46,71,2016-08-13,f,0,70,40,70,
+47,72,2016-08-13,t,0,70,50,70,
+48,97,2016-08-13,f,30,70,80,70,
+49,75,2016-08-13,f,0,60,40,50,Requires running IIS on a your local Windows laptop
+50,77,2016-08-13,f,0,60,50,50,More research required for a more accurate assessment
+51,79,2016-08-13,f,0,70,70,70,More research required for a more accurate assessment
+52,82,2016-08-13,f,0,70,70,70,More research required for a more accurate assessment
+53,86,2016-08-13,f,0,70,70,70,More research required for a more accurate assessment
+54,91,2016-08-13,f,65,80,70,70,
+55,94,2016-08-13,f,70,70,70,70,More research required for a more accurate assessment
+56,95,2016-08-13,t,70,70,70,70,More research required for a more accurate assessment
+57,96,2016-08-13,t,70,70,70,70,More research required for a more accurate assessment
+58,100,2016-08-13,t,70,70,80,60,
+59,103,2016-08-13,f,70,80,80,80,
+60,104,2016-08-13,t,80,70,70,80,
+61,115,2016-08-13,f,70,70,60,80,
+62,118,2016-08-13,f,70,80,70,70,Requires familiarity with Enterprise Architect
+63,119,2016-08-13,f,65,80,80,80,
+64,121,2016-08-13,f,0,80,70,50,
+65,123,2016-08-13,t,85,60,70,60,"Require command line skills, performs software installations as part of the process, requires non-HL7 web server to be running"
+66,124,2016-08-13,f,80,70,70,70,
+67,125,2016-08-13,t,80,70,70,70,
+68,126,2016-08-13,f,0,80,60,80,
+69,130,2016-08-13,t,80,80,30,80,
+70,131,2016-08-13,f,85,80,80,80,In alpha at time of assessment
+71,132,2016-08-13,f,75,75,60,70,Requires command line skills
+72,136,2016-08-13,t,65,75,75,75,

@@ -1,0 +1,13 @@
+<%= form_for([@tool, @tool_user], builder: ApplicationFormBuilder) do |f| %>
+    <%= f.error_block %>
+
+    <%= f.collection_select :work_group_id, CodeValue.where(code_table: 'work-grp'), :id, :print_name %>
+    <%= f.text_field :organization_name, label: 'External Organization' %>
+    <%= f.text_field :external_list, label: 'Link to a list of Users' %>
+
+    <% if f.record.new_record? -%>
+        <%= f.buttons cancel: @tool %>
+    <% else -%>
+        <%= f.buttons cancel: @tool %>
+    <% end -%>
+<% end %>

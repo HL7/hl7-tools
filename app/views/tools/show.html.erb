@@ -2,14 +2,16 @@
 
 <% content_for :title, @tool.name %>
 
+<%= link_to 'Return to Tool Listing', tools_path %>
+
 <p>
   <% if @tool.url -%>
-      <%= link_to 'Tool Homepage', @tool.url %>
+      <%= link_to 'Link to Tool Homepage', @tool.url %>
   <% else -%>
       <span class="comment">No homepage specified</span>
   <% end -%>
   <% if @tool.support_url -%>
-  &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Tool Issues', @tool.support_url %>
+  &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Link to Tool Issues', @tool.support_url %>
   <% end -%>
 </p>
 
@@ -115,6 +117,24 @@
     <input disabled="true" type='range' min='0' max='100' step='5' value='<%= assess.usability %>'/>
   </section>
 </div>
+    <div id="wrapper">
+      <svg id="meter">
+        <circle id="outline_curves" class="circle outline"  cx="50%" cy="50%">
+        </circle>
+        <circle id="low" class="circle range" cx="50%" cy="50%" stroke="#E04644">
+        </circle>
+        <circle id="avg" class="circle range" cx="50%" cy="50%" stroke="#FDE47F">
+        </circle>
+        <circle id="high" class="circle range" cx="50%" cy="50%" stroke="#7CCCE5">
+        </circle>
+        <circle id="mask" class="circle" cx="50%" cy="50%" >
+        </circle>
+        <circle id="outline_ends" class="circle outline" cx="50%" cy="50%">
+        </circle>
+      </svg>
+      <%= image_tag 'svg-meter-gauge-needle.svg', id: 'meter_needle' %>
+      <input type="hidden" id="meter-value" value="<%= (assess.risk + assess.quality + assess.sustainability + assess.usability) / 4 %>">
+    </div>
 <% end -%>
 
 <p><strong>People and Organizations associated with <%= @tool.name %>:</strong></p>
@@ -124,7 +144,7 @@
   <li>
     <p>
     <%= person.person_org.name %>
-      -<%= person.role_code_value.print_name %>-
+      -<%= person.role_list.join('/') %>-
       <% if person.person_org.contact_phone || person.person_org.contact_email -%>
       (<%= person.person_org.contact_phone ? person.person_org.contact_phone : '' %>
       <%= person.person_org.contact_phone && person.person_org.contact_email ? ' | ' : '' %>
@@ -171,8 +191,51 @@
 
 <% if is_admin? %>
     <%= link_to 'Edit', edit_tool_path(@tool) %> |
+    <%= link_to 'Add New Assessment', new_tool_tool_assessment_path(@tool) %> |
+    <%= link_to 'Add New Dependency', new_tool_tool_dependency_path(@tool) %> |
     <%= link_to 'Add New Note', new_tool_tool_note_path(@tool) %> |
     <%= link_to 'Add Responsible Toolsmith', new_tool_tool_person_path(@tool) %> |
+    <%= link_to 'Add New Technology', new_tool_tool_technology_path(@tool) %> |
+    <%= link_to 'Add New Tool User', new_tool_tool_user_path(@tool) %>
 <% end %>
-<%= link_to 'Back', tools_path %>
 
+<script>
+  var r = 400;
+  var circles = document.querySelectorAll('.circle');
+  var total_circles = circles.length;
+  if total_circles > 0 {
+    for (var i = 0; i < total_circles; i++) {
+      circles[i].setAttribute('r', r);
+    }
+    /* set meter's wrapper dimension */
+    var meter_dimension = (r * 2) + 100;
+    var wrapper = document.querySelector('#wrapper');
+    wrapper.style.width = meter_dimension + 'px';
+    wrapper.style.height = meter_dimension + 'px';
+    /* add strokes to circles  */
+    var cf = 2 * Math.PI * r;
+    var semi_cf = cf / 2;
+    var semi_cf_1by3 = semi_cf / 3;
+    var semi_cf_2by3 = semi_cf_1by3 * 2;
+    document.querySelector('#outline_curves')
+        .setAttribute('stroke-dasharray', semi_cf + ',' + cf);
+    document.querySelector('#low')
+        .setAttribute('stroke-dasharray', semi_cf + ',' + cf);
+    document.querySelector('#avg')
+        .setAttribute('stroke-dasharray', semi_cf_2by3 + ',' + cf);
+    document.querySelector('#high')
+        .setAttribute('stroke-dasharray', semi_cf_1by3 + ',' + cf);
+    document.querySelector('#outline_ends')
+        .setAttribute('stroke-dasharray', 2 + ',' + (semi_cf - 2));
+    document.querySelector('#mask')
+        .setAttribute('stroke-dasharray', semi_cf + ',' + cf);
+    /*bind range slider event*/
+    var slider = document.querySelector('#meter-value');
+    var mask = document.querySelector('#mask');
+    var meter_needle = document.querySelector('#meter_needle');
+    var percent = slider.value;
+    var meter_value = semi_cf - ((percent * semi_cf) / 100);
+    mask.setAttribute('stroke-dasharray', meter_value + ',' + cf);
+    meter_needle.style.transform = 'rotate(' + (270 + ((percent * 180) / 100)) + 'deg)';
+  }
+</script>

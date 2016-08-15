@@ -1,10 +1,20 @@
 class Tool < ActiveRecord::Base
+  before_validation :remove_array_empty
+
   has_many :tool_assessments
   has_many :tool_dependencies
   has_many :tool_technologies
   has_many :tool_persons
   has_many :tool_notes
   has_many :tool_users
+
+  validates :name, presence: true
+  validate :check_internal
+  validate :check_active
+
+  validates :functional_area, code: {table: 'func-area', array: true}
+  validates :license, code: {table: 'license'}
+  validates :product, code: {table: 'product', array: true}
 
   def functional_tags
     tags = []
@@ -87,6 +97,32 @@ class Tool < ActiveRecord::Base
       existing.and(new_filter)
     else
       new_filter
+    end
+  end
+
+  private
+  def check_internal
+    if self.internal.nil?
+      errors.add(:internal, :blank)
+    else
+      errors.add(:internal, 'must be true or false') unless self.internal.in? [true, false]
+    end
+  end
+
+  def check_active
+    if self.active.nil?
+      errors.add(:active, :blank)
+    else
+      errors.add(:active, 'must be true or false') unless self.active.in? [true, false]
+    end
+  end
+
+  def remove_array_empty
+    unless functional_area.nil?
+      functional_area.reject! { |l| l.empty? }
+    end
+    unless product.nil?
+      product.reject! { |l| l.empty? }
     end
   end
 end

@@ -1,6 +1,3 @@
-<h1>Editing Tool Note</h1>
+<% content_for :title, "Editing Note for #{@tool.name}" %>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @tool_note %> |
-<%= link_to 'Back', tool_notes_path %>

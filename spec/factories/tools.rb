@@ -23,12 +23,14 @@ FactoryGirl.define do
                note_date: Date.today - 1)
         create(:tool_note, tool: tool, note: 'Sample note 2', author: 'tester',
                note_date: Date.today)
-        create(:tool_person, tool: tool, role: 'dev',
+        create(:tool_person, tool: tool, role: ['dev'],
                person_org: create(:person_org, name: 'Joe Hacker', contact_phone: '+1 780-903-0885'))
         create(:tool_person, tool: tool, role: 'admin',
                person_org: create(:person_org, name: 'Somewhere Hospital',
                                   contact_email: 'someone@somewhere.com'))
         create(:tool_dependency, tool: tool, dependency: create(:tool, name: 'Core Tool'))
+        create(:tool_user, tool: tool, organization_name: 'FDA')
+        create(:tool_assessment, tool: tool)
       end
     end
   end

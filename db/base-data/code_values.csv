@@ -99,6 +99,7 @@ id,code_table,short_code,long_value,description,print_name,parent_id
 108,work-grp,HTA,HTA,HL7 Terminology Authority,HTA (HL7 Terminology Authority),
 109,work-grp,HQ,HL7 HQ,HL7 Head office,HL7 HQ (Head-office and staff),
 110,work-grp,FHIR-i,FHIR Infrastructure,FHIR Infrastructure,FHIR-i (FHIR Infrastructure),
+111,work-grp,CIMI,CIMI,CIMI,CIMI,
 120,product,V2,HL7 V2,HL7 Version 2 family of standards,HL7 V2,
 121,product,V3,HL7 V3,HL7 Version 3 family of standards,HL7 V3,
 122,product,CDA,HL7 CDA,HL7 CDA standards and implementation guides,HL7 CDA,
@@ -135,3 +136,4 @@ id,code_table,short_code,long_value,description,print_name,parent_id
 168,license,epl,EPL,Eclipse Public License,EPL,
 169,license,share,Shareware,Shareware,Shareware,
 170,license,free,Freeware,Free for use - proprietary,Freeware,
+171,license,hl7,HL7 License,HL7 Produced Materials License,HL7 License,

@@ -4,10 +4,13 @@
     <%= f.text_field :name %>
     <%= f.text_field :description %>
     <%= f.text_field :purpose %>
-    <%= f.text_field :url, label: 'URL' %>
-    <%= f.text_field :support_url, label: 'Support URL' %>
+    <%= f.text_field :url, label: 'Tool Homepage URL' %>
+    <%= f.text_field :support_url, label: 'Support URL (Issue Tracker)' %>
+    <%= f.text_field :installation_url, label: 'Installation Guide URL' %>
+    <%= f.text_field :user_guide_url, label: 'User Guide URL' %>
     <%= f.text_field :version %>
     <%= f.check_box :internal, label: 'Internal Tool' %>
+    <%= f.check_box :core_process, label: 'Supports Core HL7 Process' %>
     <%= f.check_box :active %>
     <%= f.text_field :aka, label: 'Other names' %>
     <%= f.date_field :rollout_date %>

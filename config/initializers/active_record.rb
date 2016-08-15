@@ -1,2 +1,2 @@
 
-ActiveRecord::Base.send :include, CodeValidate
+#ActiveRecord::Base.send :include, CodeValidate

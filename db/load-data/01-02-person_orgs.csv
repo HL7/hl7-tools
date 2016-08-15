@@ -22,3 +22,5 @@ id,name,contact_phone,contact_email,is_organization,active,notes,created_at,upda
 21,Russ Hamm,,russellhamm@gmail.com,f,t,,2016-08-02,2016-08-02
 22,Alexander Henket,,henket@nictiz.nl,f,t,,2016-08-03,2016-08-03
 23,Wilfred Bonney,,,f,f,Wilfred was an employee of HL7,2016-08-03,2016-08-03
+24,Sean Muir,,sean.muir@jkmsoftware.com,f,t,,2016-08-13,2016-08-13
+25,Brett Marquard,,brett@riverrockassociates.com,f,t,,2016-08-13,2016-08-13

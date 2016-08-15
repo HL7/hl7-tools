@@ -2,7 +2,7 @@ require 'csv'
 
 namespace :data do
   desc 'Generate the load files from CSV saves of the Excel spreadsheets'
-  task conversion: [:tool_conversion, :person_conversion, :responsibility_conversion]
+  task conversion: [:tool_conversion, :person_conversion, :responsibility_conversion, :assessment_conversion]
 
   desc 'Generate the main Tool load files from the csv Excel output of the capture spreadsheet'
   task tool_conversion: ['db/data-conversion/tools.csv'] do
@@ -11,21 +11,23 @@ namespace :data do
     note_cnt = 0
     first_rec = true
     new_csv = CSV.open(Rails.root + 'db/load-data/02-01-tools.csv', 'w')
-    new_csv << %w(id name description purpose url support_url version internal
+    new_csv << %w(id name description purpose url support_url installation_url
+                  user_guide_url version internal core_process
                   functional_area active license aka
                   product rollout_date last_update_date created_at updated_at)
     notes_csv = CSV.open(Rails.root + 'db/load-data/02-03-tool_notes.csv', 'w')
     notes_csv << %w(id tool_id note note_date author)
     CSV.foreach(Rails.root + 'db/data-conversion/tools.csv') do |row|
       unless first_rec || row[0] == 'xx'
-        new_csv << [ row[0], row[1], row[2], row[3], row[4], row[5], row[7],row[8],
-                     wrap_array_type(row[9]), row[10], row[11], row[12],
-                     wrap_array_type(row[14]), row[15], row[16],
-                     row[17], row[17] ]
+        new_csv << [ row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7],
+                     row[9],row[10],row[11],
+                     wrap_array_type(row[12]), row[13], row[14], row[15],
+                     wrap_array_type(row[17]), row[18], row[19],
+                     row[20], row[20] ]
         rec_cnt += 1
-        if row[20]
+        if row[23]
           note_cnt += 1
-          notes_csv << [ note_cnt, row[0], row[20], row[17], 'initial load' ]
+          notes_csv << [ note_cnt, row[0], row[23], row[20], 'initial load' ]
         end
       end
       first_rec = false
@@ -41,8 +43,8 @@ namespace :data do
     new_csv << %w(id tool_id technology tech_version note)
     CSV.foreach(Rails.root + 'db/data-conversion/tools.csv') do |row|
       unless first_rec || row[0] == 'xx'
-        if row[6]
-          tech_list = row[6].split
+        if row[8]
+          tech_list = row[8].split
           tech_list.each do |tech_item|
             new_csv << [ rec_cnt + 1, row[0], tech_item, nil, nil ]
             rec_cnt += 1
@@ -61,8 +63,8 @@ namespace :data do
     new_csv << %w(id tool_id dependency_id note)
     CSV.foreach(Rails.root + 'db/data-conversion/tools.csv') do |row|
       unless first_rec || row[0] == 'xx'
-        if row[18]
-          dep_list = row[18].split
+        if row[21]
+          dep_list = row[21].split
           dep_list.each do |dep_item|
             new_csv << [ rec_cnt + 1, row[0], dep_item, nil ]
             rec_cnt += 1
@@ -93,7 +95,7 @@ namespace :data do
     puts "Generation of Persons/Organizations complete, wrote #{rec_cnt} records"
   end
 
-  desc 'Generate the Tool  load files from the csv Excel output'
+  desc 'Generate the Tool Responsibilities load file from the csv Excel output'
   task responsibility_conversion: ['db/data-conversion/tool-responsibilities.csv'] do
     puts 'Beginning generation of Tool Responsibilities load file....'
     rec_cnt = 0
@@ -111,6 +113,25 @@ namespace :data do
     new_csv.close
     puts "Generation of Tool Responsibilities complete, wrote #{rec_cnt} records"
   end
+
+  desc 'Generate the tool assessment load file from the csv Excel output'
+  task assessment_conversion: ['db/data-conversion/tool-assessments.csv'] do
+    puts 'Beginning generation of Tool Assesments load file....'
+    rec_cnt = 0
+    first_rec = true
+    date = Date.today
+    new_csv = CSV.open(Rails.root + 'db/load-data/03-02-tool_assessments.csv', 'w')
+    new_csv << %w(id tool_id assessment_date required risk quality sustainability usability notes)
+    CSV.foreach(Rails.root + 'db/data-conversion/tool-assessments.csv') do |row|
+      unless first_rec || row[0] == 'xx'
+        new_csv << [ row[0], row[1], row[3], row[4], row[5], row[6], row[7], row[8], row[9]]
+        rec_cnt += 1
+      end
+      first_rec = false
+    end
+    new_csv.close
+    puts "Generation of Tool Assessments complete, wrote #{rec_cnt} records"
+  end
 end
 
 file 'db/data-conversion/tools.csv' => ['db/data-conversion/tools-raw.csv'] do |f|
@@ -124,6 +145,11 @@ file 'db/data-conversion/persons.csv' => 'db/data-conversion/persons-raw.csv' do
 end
 
 file 'db/data-conversion/tool-responsibilities.csv' => 'db/data-conversion/tool-responsibilities-raw.csv' do |f|
+  puts "Generating #{f.name} from #{f.prerequisites[0]}"
+  system "iconv -f MACROMAN -t UTF8 #{f.prerequisites[0]} | tr '\r' '\n' >#{f.name}"
+end
+
+file 'db/data-conversion/tool-assessments.csv' => 'db/data-conversion/assessments-raw.csv' do |f|
   puts "Generating #{f.name} from #{f.prerequisites[0]}"
   system "iconv -f MACROMAN -t UTF8 #{f.prerequisites[0]} | tr '\r' '\n' >#{f.name}"
 end

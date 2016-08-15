@@ -13,7 +13,7 @@ id,tool_id,tool_name,person_id,person_name,role,activity,notes
 12,24,The HL7 RMIM Designer,2,Lloyd McKenzie,dev,0,
 13,25,Rose Tree,1,Woody Beeler,dev maint,0,
 14,26,V3 Generator,1,Woody Beeler,dev maint,0,
-15,26,V3 Generator,6,Jean Duteau,maint,3,Jean will answer question and may be availabe to address bugs
+15,26,V3 Generator,6,Jean Duteau,maint,3,Jean will answer question and may be available to address bugs
 16,26,V3 Generator,2,Lloyd McKenzie,dev,1,
 17,28,MIF Schemas,2,Lloyd McKenzie,dev,1,
 18,29,MIF Utilities,1,Woody Beeler,dev maint,0,
@@ -71,7 +71,7 @@ id,tool_id,tool_name,person_id,person_name,role,activity,notes
 70,118,EHR-S FM Profile Designer Tool,10,Results4Care,admin dev tester support,7,
 71,118,EHR-S FM Profile Designer Tool,5,Michael van der Zel,dev,6,
 72,119,Manuals for the EHR-S FM Profile Designer tool,10,Results4Care,maint,6,
-73,122,SKMT Glossary Tool,17,Heather Grain,support,7,Heather coordinates activites on the SKMT
+73,122,SKMT Glossary Tool,17,Heather Grain,support,7,Heather coordinates activities on the SKMT
 74,123,FHIR Build,13,Grahame Grieve,dev admin,9,
 75,123,FHIR Build,2,Lloyd McKenzie,dev maint,9,
 76,123,FHIR Build,14,Josh Mandel,maint,5,
@@ -88,3 +88,10 @@ id,tool_id,tool_name,person_id,person_name,role,activity,notes
 87,26,V3 Generator,22,Alexander Henket,maint,6,Alexander has worked on some generator defects
 88,132,EHR-S FM/FP Publishing,4,Andy Stechishin,dev maint,7,
 89,132,EHR-S FM/FP Publishing,10,Results4Care,admin tester support,7,
+90,136,Education Portal,11,HL7 International,support,6,
+91,137,MDHT,24,Sean Muir,dev maint admin,7,
+92,52,RegOnline,11,HL7 International,support,6,
+93,95,HL7 Training,11,HL7 International,support,7,
+94,96,HL7 Certification,11,HL7 International,support,7,
+95,131,C-CDA R2.1 Samples,4,Andy Stechishin,dev,9,
+96,131,C-CDA R2.1 Samples,25,Brett Marquard,admin tester support,8,

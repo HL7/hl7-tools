@@ -2,17 +2,6 @@ class ToolPeopleController < ApplicationController
   before_action :set_tool, only: [:new, :create]
   before_action :set_tool_person, only: [:show, :edit, :update, :destroy]
 
-  # GET /tool_people
-  # GET /tool_people.json
-  def index
-    @tool_people = ToolPerson.all
-  end
-
-  # GET /tool_people/1
-  # GET /tool_people/1.json
-  def show
-  end
-
   # GET /tool_people/new
   def new
     @tool_person = ToolPerson.new

@@ -6,8 +6,11 @@ class CreateTools < ActiveRecord::Migration
       t.string  :purpose
       t.string  :url
       t.string  :support_url
+      t.string  :installation_url
+      t.string  :user_guide_url
       t.string  :version
       t.boolean :internal, null: false, default: true
+      t.boolean :core_process, null: false, default: false
       t.string  :functional_area, limit: 15, array: true
       t.boolean :active, null: false, default: true
       t.string  :license, limit: 15

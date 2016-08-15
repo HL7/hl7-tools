@@ -5,10 +5,10 @@ Feature: Key Resources
     And I am on the 'Tool Details' page
 
   Scenario: Displays the tracker URL for the tool
-    Then I should see the link 'Tool Issues' with an address of 'http://somewhere.org/track'
+    Then I should see the link 'Link to Tool Issues' with an address of 'http://somewhere.org/track'
     
   Scenario: Displays the URL of the organization that created/maintains the tool
-    Then I should see the link 'Tool Homepage' with an address of 'http://somewhere.org/x'
+    Then I should see the link 'Link to Tool Homepage' with an address of 'http://somewhere.org/x'
     
   Scenario: Displays the email of the contact for the tool creator
     Then I should see text 'someone@somewhere.com'

@@ -49,98 +49,103 @@ $ruler-c: #2c2c2b;
 .meter-container {
   display: flex;
   min-height: 1.2 * $track-w;
-}
-.vertical-meter {
-  overflow: hidden;
-  min-height: 1.5*$track-h;
-  display: flex;
-  flex-direction: column;
-  //justify-content: center;
-  margin: 0;
-  //min-width: 1.2*$track-w;
-  min-width: 7*$track-h;
-  transform: rotate(-90deg);
-}
 
-.simple {
-  overflow: hidden;
-  min-width: 7*$track-h;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-}
-
-input.vertical {
-  -webkit-appearance: slider-vertical;
-  writing-mode: bt-lr;
-}
-
-input[type='range'] {
-  &,
-  &::-webkit-slider-runnable-track,
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
+  .vertical-meter {
+    overflow: hidden;
+    min-height: 1.5*$track-h;
+    display: flex;
+    flex-direction: column;
+    //justify-content: center;
+    margin: 0;
+    //min-width: 1.2*$track-w;
+    min-width: 7*$track-h;
+    transform: rotate(-90deg);
   }
 
-  position: absolute;
-  top: 50%; left: 50%;
-  border: solid 0 transparent;
-  border-width: 0 $track-u/2;
-  padding: 1em 0 0;
-  width: $track-w; height: $track-u;
-  border-radius: .25em;
-  transform: translate(-50%, -50%);
-  background: transparent;
-  font-size: 1em;
-  cursor: pointer;
-
-  &::-webkit-slider-runnable-track {
-    position: relative;
-    @include track();
-  }
-  &::-moz-range-track {
-    @include track();
-  }
-  &::-ms-track {
-    border: none;
-    @include track();
-    color: transparent;
+  .simple {
+    overflow: hidden;
+    min-width: 7*$track-h;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
   }
 
-  &::-ms-fill-lower { display: none; }
-
-  &::-webkit-slider-thumb {
-    margin-top: ($track-h - $track-u)/2;
-    @include thumb();
-  }
-  &::-moz-range-thumb {
-    @include thumb();
-  }
-  &::-ms-thumb {
-    @include thumb();
+  input.vertical {
+    -webkit-appearance: slider-vertical;
+    writing-mode: bt-lr;
   }
 
-  &::-webkit-slider-runnable-track, /deep/ #track {
-    &:before, &:after {
-      position: absolute;
-      bottom: 100%;
-      color: $ruler-c;
-      font: 700 #{$ruler-fs*1em} / 2 arial, sans-serif;
+  input[type='range'] {
+    &,
+    &::-webkit-slider-runnable-track,
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
     }
-    &:before {
-      left: $track-u/2 - .1875em;
-      word-spacing: $track-u - .5625em;
-      content: '1 2 3 4 5 6 7 8 9';
-    }
-    &:after {
-      right: $track-u/2 - .375em;
-      word-spacing: $track-u - 1.125em;
-      content: '10 11 12 13 14 15 16';
-    }
-  }
 
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 .25em orange;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: solid 0 transparent;
+    border-width: 0 $track-u/2;
+    padding: 1em 0 0;
+    width: $track-w;
+    height: $track-u;
+    border-radius: .25em;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    font-size: 1em;
+    cursor: pointer;
+
+    &::-webkit-slider-runnable-track {
+      position: relative;
+      @include track();
+    }
+    &::-moz-range-track {
+      @include track();
+    }
+    &::-ms-track {
+      border: none;
+      @include track();
+      color: transparent;
+    }
+
+    &::-ms-fill-lower {
+      display: none;
+    }
+
+    &::-webkit-slider-thumb {
+      margin-top: ($track-h - $track-u)/2;
+      @include thumb();
+    }
+    &::-moz-range-thumb {
+      @include thumb();
+    }
+    &::-ms-thumb {
+      @include thumb();
+    }
+
+    &::-webkit-slider-runnable-track, /deep/ #track {
+      &:before, &:after {
+        position: absolute;
+        bottom: 100%;
+        color: $ruler-c;
+        font: 700 #{$ruler-fs*1em} / 2 arial, sans-serif;
+      }
+      &:before {
+        left: $track-u/2 - .1875em;
+        word-spacing: $track-u - .5625em;
+        content: '1 2 3 4 5 6 7 8 9';
+      }
+      &:after {
+        right: $track-u/2 - .375em;
+        word-spacing: $track-u - 1.125em;
+        content: '10 11 12 13 14 15 16';
+      }
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 .25em orange;
+    }
   }
 }

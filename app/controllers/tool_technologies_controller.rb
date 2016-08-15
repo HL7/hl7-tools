@@ -1,4 +1,5 @@
 class ToolTechnologiesController < ApplicationController
+  before_action :set_tool, only: [:new, :create]
   before_action :set_tool_technology, only: [:show, :edit, :update, :destroy]
 
   # GET /tool_technologies
@@ -25,10 +26,11 @@ class ToolTechnologiesController < ApplicationController
   # POST /tool_technologies.json
   def create
     @tool_technology = ToolTechnology.new(tool_technology_params)
+    @tool_technology.tool = @tool
 
     respond_to do |format|
       if @tool_technology.save
-        format.html { redirect_to @tool_technology, notice: 'Tool technology was successfully created.' }
+        format.html { redirect_to @tool, notice: 'Tool technology was successfully created.' }
         format.json { render :show, status: :created, location: @tool_technology }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class ToolTechnologiesController < ApplicationController
   def update
     respond_to do |format|
       if @tool_technology.update(tool_technology_params)
-        format.html { redirect_to @tool_technology, notice: 'Tool technology was successfully updated.' }
+        format.html { redirect_to @tool_technology.tool, notice: 'Tool technology was successfully updated.' }
         format.json { render :show, status: :ok, location: @tool_technology }
       else
         format.html { render :edit }
@@ -62,13 +64,16 @@ class ToolTechnologiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tool_technology
-      @tool_technology = ToolTechnology.find(params[:id])
-    end
+  def set_tool
+    @tool = Tool.find(params[:tool_id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def tool_technology_params
-      params.fetch(:tool_technology, {})
-    end
+  def set_tool_technology
+    @tool_technology = ToolTechnology.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def tool_technology_params
+    params.require(:tool_technology).permit(:technology, :tech_version, :note)
+  end
 end

@@ -20,4 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  errors:
+    messages:
+      code_invalid:       "%{code} is not a valid code for %{value_set}"
+      code_table_missing: "code validation requires specifying the table of values"
