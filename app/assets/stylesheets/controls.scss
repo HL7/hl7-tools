@@ -55,3 +55,22 @@ input[type="checkbox"].display {
 .comment {
   font-style: italic;
 }
+
+.list-image {
+  img {
+    max-height: 40px;
+  }
+}
+
+.inactive {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.important-notice {
+  background: lightpink;
+  padding: 7px;
+  border-left: hotpink solid 8px;
+  font-variant: small-caps;
+  font-weight: bolder;
+}

@@ -19,9 +19,14 @@ namespace :data do
     notes_csv << %w(id tool_id note note_date author)
     CSV.foreach(Rails.root + 'db/data-conversion/tools.csv') do |row|
       unless first_rec || row[0] == 'xx'
+        if row[14]
+          license = row[14].strip
+        else
+          license = nil
+        end
         new_csv << [ row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7],
                      row[9],row[10],row[11],
-                     wrap_array_type(row[12]), row[13], row[14], row[15],
+                     wrap_array_type(row[12]), row[13], license, row[15],
                      wrap_array_type(row[17]), row[18], row[19],
                      row[20], row[20] ]
         rec_cnt += 1

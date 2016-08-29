@@ -61,4 +61,10 @@ RSpec.describe Tool, type: :model do
     it 'should strip empty functional_area values'
     it 'should strip empty product values'
   end
+
+  context 'run-time' do
+    it 'should work with invalid license'
+    it 'should work with invalid functional areas'
+    it 'should work with invalid products'
+  end
 end

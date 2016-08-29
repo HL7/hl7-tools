@@ -26,4 +26,8 @@ RSpec.describe ToolTechnology, type: :model do
       expect(object.errors[:technology].count).to be > 0
     end
   end
+
+  context 'run-time' do
+    it 'should work with invalid technology'
+  end
 end

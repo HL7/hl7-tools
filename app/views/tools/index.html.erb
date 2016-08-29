@@ -18,7 +18,7 @@
       <th>Name</th>
       <th>Tool Functional Areas</th>
       <th>HL7 Product</th>
-      <th>Internal</th>
+      <th>Internal/Core</th>
       <th></th>
     </tr>
   </thead>
@@ -47,7 +47,16 @@
                 <% end -%>
               </ul>
           <% end -%></td>
-        <td><div class="centered"><input class="display" disabled="true" type="checkbox" <% if tool.internal %>checked<% end %>></div></td>
+        <td>
+          <div class="centered list-image">
+            <% if tool.internal -%>
+                <%= image_tag 'Checkmark-green-lite.png' %>
+            <% end -%>
+            <% if tool.core_process -%>
+                <%= image_tag 'core-icon.png' %>
+            <% end -%>
+          </div>
+        </td>
         <td>
           <%= link_to(tool, class: 'detail-link') do %>
           <span class="article-detail">Detail</span><span class="link-pointer"> &#x3e;</span>

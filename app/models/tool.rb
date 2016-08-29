@@ -45,7 +45,7 @@ class Tool < ActiveRecord::Base
   def license_name
     if license
       code = CodeValue.find_by(code_table: 'license', code: license)
-      code.print_name
+      code.nil? ? nil: code.print_name
     else
       nil
     end

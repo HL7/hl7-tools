@@ -5,7 +5,13 @@ class ToolTechnology < ActiveRecord::Base
   validates :technology, code: { table: 'technology', presence: true }
   validates :tech_version, length: { maximum: 30 }
 
-  def tech_code_value
-    @tech_code_value ||= CodeValue.find_by(code_table: 'technology', code: technology)
+  def technology_name
+    @tech_name_value ||= get_tech_name
+  end
+
+  private
+  def get_tech_name
+    code = CodeValue.find_by(code_table: 'technology', code: technology)
+    code.nil? ? "Unknown technology: #{technology}" : code.print_name
   end
 end

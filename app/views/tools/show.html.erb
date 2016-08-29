@@ -1,18 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <% content_for :title, @tool.name %>
-
-<%= link_to 'Return to Tool Listing', tools_path %>
-
 <p>
-  <% if @tool.url -%>
-      <%= link_to 'Link to Tool Homepage', @tool.url %>
+<%= link_to 'Return to Tool Listing', tools_path, class: 'button info small' %>
+<% if @tool.url -%>
+    <%= link_to('Link to Tool Homepage', @tool.url, class: 'button info small') %>
+<% else -%>
+    <%# link_to('No Homepage specified', @tool.url, class: 'button disabled small') %>
+    <span class="comment">No tool homepage specified</span>
+<% end -%>
+<% if @tool.support_url -%>
+    <%= link_to 'Link to Tool Issues', @tool.support_url, class: 'button info small' %>
+<% end -%>
+<% if @tool.installation_url || @tool.user_guide_url -%>
+  <% if @tool.installation_url -%>
+    <%= link_to 'Link to Tool Installation', @tool.url, class: 'button info small' %>
   <% else -%>
-      <span class="comment">No homepage specified</span>
+    <%# link_to('No installation site', @tool.installation_url, class: 'button disabled') %>
+    <span class="comment">No Installation site named</span>
   <% end -%>
-  <% if @tool.support_url -%>
-  &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Link to Tool Issues', @tool.support_url %>
+  <% if @tool.user_guide_url -%>
+    <%= link_to 'Link to Tool User Guide', @tool.support_url, class: 'button info small' %>
   <% end -%>
+<% end -%>
 </p>
 
 <% unless @tool.active -%>
@@ -20,17 +30,22 @@
 <% end -%>
 
 <% if @tool.aka -%>
-    <p>
-      <strong>Also Known As:</strong>
-      <%= @tool.aka %>
-    </p>
+<p>
+  <strong>Also Known As:</strong>
+  <%= @tool.aka %>
+</p>
 <% end -%>
+
 <%= simple_format(@tool.description) %>
 
 <p>
   <strong>Purpose:</strong>
   <%= @tool.purpose %>
 </p>
+
+<% if @tool.core_process? -%>
+<p><strong>Is Core to supporting an HL7 process</strong></p>
+<% end -%>
 
 <p>
   <strong>Product Family:</strong>
@@ -62,7 +77,7 @@
 <% if @tool.tool_technologies.count > 0 -%>
 <ul>
   <% @tool.tool_technologies.each do |tech| -%>
-  <li><%= tech.tech_code_value.print_name %> <%= tech.tech_version %></li>
+  <li><%= tech.technology_name %> <%= tech.tech_version %></li>
   <% end -%>
 </ul>
 <% else -%>
