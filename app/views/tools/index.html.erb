@@ -18,7 +18,8 @@
       <th>Name</th>
       <th>Tool Functional Areas</th>
       <th>HL7 Product</th>
-      <th>Internal/Core</th>
+      <th class="list-hdr">Internal (<%= image_tag 'Checkmark-green-lite.png' %>) /
+        Core (<%= image_tag 'core-icon.png' %>)</th>
       <th></th>
     </tr>
   </thead>
@@ -28,9 +29,9 @@
       <tr>
         <td>
           <% if tool.active -%>
-              <%= tool.name %>
+              <%= truncate_words(tool.name, 50, '...') %>
           <% else -%>
-              <span class="inactive"><%= tool.name %></span>
+              <span class="inactive"><%=truncate_words(tool.name, 50, '...') %></span>
           <% end -%>
           </td>
         <td><% if tool.functional_tags.count > 0 -%>

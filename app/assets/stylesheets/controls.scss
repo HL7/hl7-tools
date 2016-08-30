@@ -56,6 +56,12 @@ input[type="checkbox"].display {
   font-style: italic;
 }
 
+.list-hdr {
+  img {
+    max-height: 15px;
+  }
+}
+
 .list-image {
   img {
     max-height: 40px;

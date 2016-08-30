@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<% content_for :title, @tool.name %>
+<% max_length = 30 -%>
+<% content_for :title, truncate_words(@tool.name, max_length) %>
 <p>
 <%= link_to 'Return to Tool Listing', tools_path, class: 'button info small' %>
 <% if @tool.url -%>
@@ -27,6 +28,13 @@
 
 <% unless @tool.active -%>
 <p class="important-notice">This tool is not active</p>
+<% end -%>
+
+<% if @tool.name.length > max_length -%>
+<p>
+  <strong>Full Name:</strong>
+  <%= @tool.name %>
+</p>
 <% end -%>
 
 <% if @tool.aka -%>
