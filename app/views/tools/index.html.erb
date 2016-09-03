@@ -12,6 +12,7 @@
     <%= submit_tag "Search", :name => nil %>
 <% end %>
 
+<p class="comment">Found <%= pluralize(@tools.count, 'record')  %></p>
 <table>
   <thead>
     <tr>
