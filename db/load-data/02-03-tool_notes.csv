@@ -50,5 +50,10 @@ For developers, persons who are adding content in the skmt, there is also a user
 36,128,"Downloading the tool throught either http://fhir.furore.com/Forge and the FHIR registry, https://simplifier.net/ui/Access/Login, you must first register and login.",2016-08-02,initial load
 37,131,Application is being developed and is in design,2016-08-04,initial load
 38,132,Application requires knowledge of running tools on the command line. Installation and run instructions are included in the EHR-S Functional Modeler user documentation,2016-08-07,initial load
-39,133,"Application requires knowledge in using Enterprise Architect, requires a valid Enterprise Architect installation",2016-08-10,initial load
-40,135,"Application requires knowledge in using Enterprise Architect, requires a valid Enterprise Architect installation",2016-08-10,initial load
+39,133,"Application requires knowledge in using Enterprise Architect, requires a valid Enterprise Architect installation
+
+Please send issues to: DCMHelpdesk@results4care.eu",2016-08-10,initial load
+40,134,Please send issues to: DCMHelpdesk@results4care.eu,2016-08-10,initial load
+41,135,"Application requires knowledge in using Enterprise Architect, requires a valid Enterprise Architect installation.
+
+Please send issues to: DCMHelpdesk@results4care.eu",2016-08-10,initial load

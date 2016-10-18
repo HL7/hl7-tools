@@ -10,8 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+ * .. require_tree .
+ * .. require_self
+ *= require fonts
+ *= require top-bar
+ *= require scaffolds
+ *= require controls
+ * ..require tools
  *= require foundation_and_overrides
 
  */

@@ -12,7 +12,8 @@
     <%= submit_tag "Search", :name => nil %>
 <% end %>
 
-<p class="comment">Found <%= pluralize(@tools.count, 'record')  %></p>
+<p class="comment large-8 columns">Found <%= pluralize(@tools.count, 'record')  %></p>
+<p class="large-4 columns right"><%= link_to 'Submit new Tool', 'http://wiki.hl7.org/images/8/87/Template_For_Submission_version02.xlsx' %></p>
 <table>
   <thead>
     <tr>
