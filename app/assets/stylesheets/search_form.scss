@@ -1,0 +1,262 @@
+#search-form {
+  $labelTextColor: red;
+//  $labelTextColor: #0075d5;
+  $hintTextColor: red;
+//  $hintTextColor: #ACACAC;
+  $formTextColor: #333333;
+
+  $secondInputPadding: 1px .4em 1px .4em; // only for appending fields
+  $defaultPadding: 1px;
+  $borderSize: 1px;
+  $fontSizeForm: 1em;
+  $fontSizeLabel: .65em;
+
+  $fontStack: "Gill Sans Light", Arial;
+
+  $animations: labelIn, labelOut;
+  $animationTime: .35s;
+  $ease: cubic-bezier(0.770, 0.000, 0.175, 1.000); /* easeInOutQuart */
+
+  fieldset {
+    //background: #ece9d6;
+    background: rgba(235,233,214,.4);
+    border-radius: 3px;
+
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-top: .2rem;
+    margin-bottom: .3rem;
+
+    legend {
+      font-style: italic;
+      font-size: .7em;
+      opacity: .5;
+    }
+  }
+
+  ::-webkit-input-placeholder {
+    font-style: italic;
+    color: red;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    font-style: italic;
+    color: red;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    font-style: italic;
+    color: red;
+  }
+
+  :-ms-input-placeholder {
+    font-style: italic;
+    color: red;
+  }
+
+  label {
+    margin-left: 3px;
+    margin-right: 6px;
+    font-size: .75em;
+    font-variant: small-caps;
+  }
+
+  .push-buttons {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    legend {
+      font-size: .5em;
+    }
+    input {
+      position: absolute;
+      left: -9999px;
+    }
+
+    label {
+      font-family: "Gill Sans";
+      font-weight: 300;
+      float: left;
+      margin: 4px;
+      padding: 6px;
+      border-radius: 4px;
+      border: solid .5px rgba(5, 5, 5, .4);
+      //border: solid 2px rgba(255, 255, 255, .4);
+      background-color: rgba(255, 255, 255, .2);
+      cursor: pointer;
+      transition: all .1s;
+    }
+
+    label::before {
+      display: inline;
+    }
+
+    input:checked + label {
+      border: solid 1px #000;
+      //border: solid 2px #fff;
+      background-color: rgba(52, 205, 237, .4);
+      //color: white;
+      box-shadow: 0 0 10px #fff;
+    }
+  }
+
+  .input-float-label {
+    position: relative;
+
+    label {
+      opacity: 0;
+      position: absolute;
+      top: 2em;
+      transition: all 0.1s linear;
+      z-index: -1;
+    }
+
+    label.show {
+      opacity: 1;
+      top: -1em;
+      z-index: 1;
+    }
+  }
+
+  .input-container {
+    position: relative;
+    height: 2.9em;
+    padding-left: 0;
+    border: 0px solid #ECECEC;
+    border-bottom-width: $borderSize;
+
+    $letterSpacing: 0.012em;
+    $inputTop: 1.2em;
+
+    input {
+      display: block;
+      position: absolute;
+      box-sizing: border-box;
+      width: 100%;
+      border: 0;
+      top: $inputTop;
+      background: none;
+      z-index: 1;
+      padding: $defaultPadding;
+      font-size: $fontSizeForm;
+      font-family: $fontStack;
+      letter-spacing: $letterSpacing;
+    }
+
+    label {
+      font-family: $fontStack;
+      display: block;
+      position: absolute;
+      margin-top: 2px;
+      padding: $defaultPadding;
+      letter-spacing: $letterSpacing;
+      color: $hintTextColor;
+      font-style: italic;
+      font-size: $fontSizeForm;
+
+      animation-name: nth($animations, 1);
+      animation-duration: $animationTime;
+      animation-direction: reverse;
+      animation-fill-mode: forwards;
+      animation-timing-function: $ease;
+    }
+
+    // Change label position on focus & valid
+    input:focus + label, input:valid + label {
+      animation-name: nth($animations, 2);
+      animation-duration: $animationTime;
+      animation-direction: normal;
+      animation-fill-mode: forwards;
+      animation-timing-function: $ease;
+    }
+
+    // Create separate animation keyframes for in and out animations to avoid conflicts
+    @each $animationName in $animations {
+      @keyframes #{$animationName} {
+        0% {
+          left: $borderSize;
+          opacity: 1;
+          top: $inputTop;
+          font-size: $fontSizeForm;
+          font-weight: 300;
+        }
+        50% {
+          font-size: $fontSizeForm;
+          left: 1em;
+          opacity: 0;
+          top: $inputTop;
+          font-weight: 300;
+        }
+        50.01% {
+          font-size: $fontSizeLabel;
+          left: 1em;
+          opacity: 0;
+          top: 0.2em;
+          color: $labelTextColor;
+          font-weight: 400;
+        }
+        100% {
+          font-size: $fontSizeLabel;
+          opacity: 1;
+          left: $borderSize;
+          top: 0.2em;
+          color: $labelTextColor;
+          font-weight: 400;
+        }
+      }
+    }
+
+    // disable focus outline
+    *:focus {
+      outline: 0;
+    }
+
+    // left aligned fields
+    #first-name, #postal {
+      float: left;
+      box-sizing: border-box;
+      display: inline-block;
+      border-right-width: $borderSize;
+    }
+
+    // right aligned fields
+    #last-name, #city {
+      float: right;
+      box-sizing: border-box;
+      display: inline-block;
+
+      label, input {
+        padding: $secondInputPadding;
+      }
+
+      + * {
+        clear: both;
+      }
+    }
+  }
+
+  .send-search {
+    text-align: right;
+    margin-top: 2px;
+    margin-bottom: 4px;
+  }
+
+  .search-button {
+    margin-top: 2px;
+    margin-bottom: 4px;
+  }
+
+  // Fade in to hide the initial animation of the labels
+  opacity: 0;
+  animation: fadeIn .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) $animationTime/2 1 normal forwards;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

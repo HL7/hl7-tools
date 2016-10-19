@@ -1,15 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <% content_for :title, 'Tool Listing' %>
-<%= form_tag(tools_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag 'search[search_text]', @search.nil? ? nil : @search.search_text,
-                       placeholder: "Search for word or phrase", class: 'small-6' %>
-    <%= collection_check_boxes :search, :area, CodeValue.where(code_table: 'func-area'),
-                               :code, :print_name %>
-    <br/>
-    <%= collection_check_boxes :search, :product, CodeValue.where(code_table: 'product'),
-                               :code, :print_name %>
-    <%= submit_tag "Search", :name => nil %>
+<%= form_tag(tools_path, :method => "get", id: "search-form", name: 'searchform') do %>
+    <fieldset>
+      <legend>Search Criteria</legend>
+      <div class="input-float-label">
+        <%= text_field_tag 'search[search_text]', @search.nil? ? nil : @search.search_text,
+                           class: 'small-6', placeholder: 'enter a word or words to search' %>
+        <label for="search[search_text]">Search text:</label>
+      </div>
+      <fieldset class="large-12 columns push-buttons">
+        <legend>filter by functional area</legend>
+        <%= collection_check_boxes :search, :area, CodeValue.where(code_table: 'func-area'),
+                                   :code, :print_name %>
+      </fieldset>
+      <fieldset class="large-10 columns push-buttons">
+        <legend>filter by product</legend>
+        <%= collection_check_boxes :search, :product, CodeValue.where(code_table: 'product'),
+                                   :code, :print_name %>
+      </fieldset>
+      <div class="large-2 columns send-search">
+        <%= submit_tag "Search", :name => nil, id: 'sub-btn', class: 'button right search-button' %>
+      </div>
+    </fieldset>
 <% end %>
 
 <p class="comment large-8 columns">Found <%= pluralize(@tools.count, 'record')  %></p>
@@ -74,3 +87,22 @@
 <% if is_admin? -%>
 <%= link_to 'Add New Tool', new_tool_path %>
 <% end -%>
+
+<script>
+  $( document ).ready(function() {
+    $(function () {
+      var showClass = 'show';
+
+      $('input').on('checkval', function () {
+        var label = $(this).prev('label');
+        if (this.value !== '') {
+          label.addClass(showClass);
+        } else {
+          label.removeClass(showClass);
+        }
+      }).on('keyup', function () {
+        $(this).trigger('checkval');
+      });
+    });
+  });
+</script>
