@@ -1,59 +1,59 @@
 id,tool_id,note,note_date,author
-1,1,"Currently site is beta and revision are ongoing, site URL may not always work",2016-06-01,initial load
-2,4,More about what DIL is can be found with the URL http://www.dil.aegis.net/what-is-the-DIL.html  User requirements are listed in the user guide as well as information how to register and login.,2016-06-01,initial load
-3,5,"© AEGIS.net, Inc., All rights reserved",2016-06-01,initial load
-4,6,There are more video's on DIL DIL 3 0 Demo DIL 3 0 Participant Training Video DIL Admin Test Case Configuration Video Introduction to DIL Rules Engine ,2016-06-01,initial load
-5,9,Publishing Calendar is updated at each WGM for the next ballot cycle,2016-06-01,initial load
+1,1,"Currently site is beta and revision are ongoing, site URL may not always work",6/1/2016,initial load
+2,4,More about what DIL is can be found with the URL http://www.dil.aegis.net/what-is-the-DIL.html  User requirements are listed in the user guide as well as information how to register and login.,6/1/2016,initial load
+3,5,"© AEGIS.net, Inc., All rights reserved",6/1/2016,initial load
+4,6,There are more video's on DIL DIL 3 0 Demo DIL 3 0 Participant Training Video DIL Admin Test Case Configuration Video Introduction to DIL Rules Engine ,6/1/2016,initial load
+5,9,Publishing Calendar is updated at each WGM for the next ballot cycle,6/1/2016,initial load
 6,14,"C++, Java, COM/ActiveX
 Microsoft.NET (C#, VB.NET, Visual J#)
 C++ for Linux
-C++ for Solaris",2016-06-01,initial load
-7,31,Maintained by Ted Klein kci@tklein.com,2016-06-01,initial load
-8,36,The HL7 Ballot database is not visible to members and is internal HQ use only.,2016-06-01,initial load
+C++ for Solaris",6/1/2016,initial load
+7,31,Maintained by Ted Klein kci@tklein.com,6/1/2016,initial load
+8,36,The HL7 Ballot database is not visible to members and is internal HQ use only.,6/1/2016,initial load
 9,38,"To update projects in Project Insight please go to http://www.hl7.org/documentcenter/public/wg/projectServices/Project%20Insight%20Tip%20Sheet_2011.doc
-More support on http://www.projectinsight.net/project-management-software/manual/Content/Overview.htm",2016-06-01,initial load
-10,41,"The contents of this Wiki are non binding; see the HL7 website for persistent documents (minutes, standards, etc.). The HL7 TSC Wiki currently has 1,522 pages with substantive content. See articles from the main HL7 Wiki on Basic Editing and Help Resources for information about editing the Wiki. To access information, either use the search option or see the section of interest in the table below.",2016-06-01,initial load
-11,45,The zip file below contains a spreadsheet and instructions for performing this task.,2016-06-01,initial load
-12,46,An extension for Enterprise Architect from Sparx. See also https://app.box.com/s/ndhk4hnh2adzcho42sus,2016-06-01,initial load
-13,49,"Not only for the use of HL7 standards, but also for other HL7 topics.",2016-06-01,initial load
-14,54,Members can subscribe to specific workgroups on the listserver. All subscribers to HL7's lists are subject to our listserv usage policy (http://www.hl7.org/myhl7/managelistservs.cfm#listrules).,2016-06-01,initial load
-15,55,"Last check-in to SVN was in 2010, release was 2014 unknown if release and repository in sync. Not current with VML  and Harmonization process as of this note",2016-06-01,initial load
+More support on http://www.projectinsight.net/project-management-software/manual/Content/Overview.htm",6/1/2016,initial load
+10,41,"The contents of this Wiki are non binding; see the HL7 website for persistent documents (minutes, standards, etc.). The HL7 TSC Wiki currently has 1,522 pages with substantive content. See articles from the main HL7 Wiki on Basic Editing and Help Resources for information about editing the Wiki. To access information, either use the search option or see the section of interest in the table below.",6/1/2016,initial load
+11,45,The zip file below contains a spreadsheet and instructions for performing this task.,6/1/2016,initial load
+12,46,An extension for Enterprise Architect from Sparx. See also https://app.box.com/s/ndhk4hnh2adzcho42sus,6/1/2016,initial load
+13,49,"Not only for the use of HL7 standards, but also for other HL7 topics.",6/1/2016,initial load
+14,54,Members can subscribe to specific workgroups on the listserver. All subscribers to HL7's lists are subject to our listserv usage policy (http://www.hl7.org/myhl7/managelistservs.cfm#listrules).,6/1/2016,initial load
+15,55,"Last check-in to SVN was in 2010, release was 2014 unknown if release and repository in sync. Not current with VML  and Harmonization process as of this note",6/1/2016,initial load
 16,56,"You can also view the Version 3 Vocabulary on the V3 Ballot Web Site using the following link:
-Version 3 Vocabulary page in the V3 Ballot Website (http://www.hl7.org/v3ballotarchive_temp_0B87DE5E-1C23-BA17-0C7CAAFAB2FA7DE6/v3ballot/html/infrastructure/vocabulary/vocabulary.html).",2016-06-01,initial load
-17,63,A copy of the EULA is available at the following location: http://hl7projects.hl7.nscee.edu/tc_include/hl7_eula.html.,2016-06-01,initial load
-18,64,Health Level 7 (HL7) Development Framework (HDF) is included in the 'Background documents' on the site. The HDF is an informative document.,2016-06-01,initial load
-19,69,See also http://gforge.hl7.org/gf/project/tool-proc-arch/frs/?action=FrsReleaseBrowse&frs_package_id=86,2016-06-01,initial load
-20,72,"The current V3 Ballot Web Site is always available at: http://www.hl7.org/v3ballot/html/welcome/introduction/index.htm. After clicking into the V3 Ballot Web Site content pages from the Introduction page, use the left-hand navigation tree to go to Background Documents/Glossary.",2016-06-01,initial load
-21,74,"The current V3 Ballot Web Site is always available at: http://www.hl7.org/v3ballot/html/welcome/introduction/index.htm. After clicking into the V3 Ballot Web Site content pages from the Introduction page, use the left-hand navigation tree to go to Background Documents/Substantive Change.",2016-06-01,initial load
-22,75,"Requires running a stand-alone IIS instance on the local desktop, dependant on the TinyMCE Javascript editor",2016-06-01,initial load
+Version 3 Vocabulary page in the V3 Ballot Website (http://www.hl7.org/v3ballotarchive_temp_0B87DE5E-1C23-BA17-0C7CAAFAB2FA7DE6/v3ballot/html/infrastructure/vocabulary/vocabulary.html).",6/1/2016,initial load
+17,63,A copy of the EULA is available at the following location: http://hl7projects.hl7.nscee.edu/tc_include/hl7_eula.html.,6/1/2016,initial load
+18,64,Health Level 7 (HL7) Development Framework (HDF) is included in the 'Background documents' on the site. The HDF is an informative document.,6/1/2016,initial load
+19,69,See also http://gforge.hl7.org/gf/project/tool-proc-arch/frs/?action=FrsReleaseBrowse&frs_package_id=86,6/1/2016,initial load
+20,72,"The current V3 Ballot Web Site is always available at: http://www.hl7.org/v3ballot/html/welcome/introduction/index.htm. After clicking into the V3 Ballot Web Site content pages from the Introduction page, use the left-hand navigation tree to go to Background Documents/Glossary.",6/1/2016,initial load
+21,74,"The current V3 Ballot Web Site is always available at: http://www.hl7.org/v3ballot/html/welcome/introduction/index.htm. After clicking into the V3 Ballot Web Site content pages from the Introduction page, use the left-hand navigation tree to go to Background Documents/Substantive Change.",6/1/2016,initial load
+22,75,"Requires running a stand-alone IIS instance on the local desktop, dependant on the TinyMCE Javascript editor",6/1/2016,initial load
 23,77,"Tooling Development Status: 4 - Beta
 
 a. ensure your system is running Java 1.6; and 
-b. create a folder C:Xlib to hold temporary files. ",2016-06-18,initial load
-24,80,"For further technical assistance please contact the PHIN Help Desk at PHINTech@cdc.gov. Please put ""ELR Translation Tool"" in the subject line.",2016-06-18,initial load
-25,81,"For further technical assistance please contact the PHIN Help Desk at PHINTech@cdc.gov. Please put ""ELR Translation Tool"" in the subject line.",2016-06-18,initial load
+b. create a folder C:Xlib to hold temporary files. ",6/18/2016,initial load
+24,80,"For further technical assistance please contact the PHIN Help Desk at PHINTech@cdc.gov. Please put ""ELR Translation Tool"" in the subject line.",6/18/2016,initial load
+25,81,"For further technical assistance please contact the PHIN Help Desk at PHINTech@cdc.gov. Please put ""ELR Translation Tool"" in the subject line.",6/18/2016,initial load
 26,86,"In its current form, this document is only a recommendation and should not be considered an HL7 standard.
-For updates to this document and related information, visit the Conformance Special Interest Group; http://www.hl7.org/Special/committees/ictc/index.cfm",2016-06-18,initial load
-27,98,The support url is the url to the Sparx website for support.,2016-06-18,initial load
-28,100,"GForge assists in the management of the entire development life cycle using Collaborative Development Environment (CDE) tools to assist a team in working together, using message forums and mailing lists, including tools to create and control access to Source Code Management (SCM) repositories. GForge automatically creates a repository and controls access to it depending on the role security settings of the Project.",2016-06-18,initial load
+For updates to this document and related information, visit the Conformance Special Interest Group; http://www.hl7.org/Special/committees/ictc/index.cfm",6/18/2016,initial load
+27,98,The support url is the url to the Sparx website for support.,6/18/2016,initial load
+28,100,"GForge assists in the management of the entire development life cycle using Collaborative Development Environment (CDE) tools to assist a team in working together, using message forums and mailing lists, including tools to create and control access to Source Code Management (SCM) repositories. GForge automatically creates a repository and controls access to it depending on the role security settings of the Project.",6/18/2016,initial load
 29,101,"More about Work Group Health at the wiki, http://hl7tsc.org/wiki/index.php?title=Work_Group_Health
 
-To update projects in Project Insight please go to http://www.hl7.org/documentcenter/public/wg/projectServices/Project%20Insight%20Tip%20Sheet_2011.doc",2016-06-18,initial load
-30,102,The Ballot Guides in this document were developed as a supplement to the HL7 Co-Chair Handbook (http://www.hl7.org/permalink/?CoChairHandbook) to provide a quick reference to information related to each level of HL7 balloting.,2016-06-18,initial load
-31,110,By agreeing to the license you will be directed to the video.,2016-06-18,initial load
-32,111,You have direct access to the video.,2016-06-18,initial load
+To update projects in Project Insight please go to http://www.hl7.org/documentcenter/public/wg/projectServices/Project%20Insight%20Tip%20Sheet_2011.doc",6/18/2016,initial load
+30,102,The Ballot Guides in this document were developed as a supplement to the HL7 Co-Chair Handbook (http://www.hl7.org/permalink/?CoChairHandbook) to provide a quick reference to information related to each level of HL7 balloting.,6/18/2016,initial load
+31,110,By agreeing to the license you will be directed to the video.,6/18/2016,initial load
+32,111,You have direct access to the video.,6/18/2016,initial load
 33,118,"Requires Enterprise Architect (Sparx), the corporate edition.
-If you want to know more about the tool or get the computable artifacts for this, please contact the co-chaairs of the EHR work group: http://www.hl7.org/Special/committees/ehr/leadership.cfm",2016-06-18,initial load
+If you want to know more about the tool or get the computable artifacts for this, please contact the co-chaairs of the EHR work group: http://www.hl7.org/Special/committees/ehr/leadership.cfm",6/18/2016,initial load
 34,122,"The content of the skmt is owned by the publisher and is published for reference only under agreement with the publishers.  the users do not require any license to use it - only conventioinal copyright referencing expectations. 
-For developers, persons who are adding content in the skmt, there is also a user guide  available at http://skmtglossary.org/Doc/SKMTUserGuide.pdf",2016-06-18,initial load
-35,123,The FHIR Build process cannot run unless it can contact the FHIR Vocabulary Server. Output from the vacabulary server is cache to enhance the performance of the FHIR Build process,2016-06-18,initial load
-36,128,"Downloading the tool throught either http://fhir.furore.com/Forge and the FHIR registry, https://simplifier.net/ui/Access/Login, you must first register and login.",2016-08-02,initial load
-37,131,Application is being developed and is in design,2016-08-04,initial load
-38,132,Application requires knowledge of running tools on the command line. Installation and run instructions are included in the EHR-S Functional Modeler user documentation,2016-08-07,initial load
+For developers, persons who are adding content in the skmt, there is also a user guide  available at http://skmtglossary.org/Doc/SKMTUserGuide.pdf",6/18/2016,initial load
+35,123,The FHIR Build process cannot run unless it can contact the FHIR Vocabulary Server. Output from the vacabulary server is cache to enhance the performance of the FHIR Build process,6/18/2016,initial load
+36,128,"Downloading the tool throught either http://fhir.furore.com/Forge and the FHIR registry, https://simplifier.net/ui/Access/Login, you must first register and login.",8/2/2016,initial load
+37,131,Application is being developed and is in design,8/4/2016,initial load
+38,132,Application requires knowledge of running tools on the command line. Installation and run instructions are included in the EHR-S Functional Modeler user documentation,8/7/2016,initial load
 39,133,"Application requires knowledge in using Enterprise Architect, requires a valid Enterprise Architect installation
 
-Please send issues to: DCMHelpdesk@results4care.eu",2016-08-10,initial load
-40,134,Please send issues to: DCMHelpdesk@results4care.eu,2016-08-10,initial load
+Please send issues to: DCMHelpdesk@results4care.eu",8/10/2016,initial load
+40,134,Please send issues to: DCMHelpdesk@results4care.eu,8/10/2016,initial load
 41,135,"Application requires knowledge in using Enterprise Architect, requires a valid Enterprise Architect installation.
 
-Please send issues to: DCMHelpdesk@results4care.eu",2016-08-10,initial load
+Please send issues to: DCMHelpdesk@results4care.eu",8/10/2016,initial load
