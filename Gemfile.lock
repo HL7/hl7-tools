@@ -116,6 +116,7 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     erubis (2.7.0)
+    eventmachine (1.2.7)
     eventmachine (1.2.7-x64-mingw32)
     execjs (2.7.0)
     factory_girl (4.9.0)
@@ -125,6 +126,7 @@ GEM
       railties (>= 3.0.0)
     faker (2.2.1)
       i18n (>= 0.8)
+    ffi (1.12.2)
     ffi (1.12.2-x64-mingw32)
     formatador (0.2.5)
     foundation-rails (5.5.3.2)
@@ -172,13 +174,17 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2020.0425)
     mini_mime (1.0.2)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.8.0)
     minitest (5.14.0)
     multi_json (1.14.1)
     multi_test (0.1.2)
     nenv (0.3.0)
-    nokogiri (1.10.9-x64-mingw32)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.13.3)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
+    nokogiri (1.13.3-x64-mingw32)
+      racc (~> 1.4)
+    pg (1.2.3)
     pg (1.2.3-x64-mingw32)
     pg_array_parser (0.0.9)
     pg_search (2.3.0)
@@ -192,6 +198,7 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.4)
+    racc (1.6.0)
     rack (1.6.13)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -311,6 +318,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
